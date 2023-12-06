@@ -14,7 +14,6 @@ const AppDrawer = () => {
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Settings" component={Settings} />
-        {/* Add more screens as needed */}
       </Drawer.Navigator>
     </NavigationContainer>
   );

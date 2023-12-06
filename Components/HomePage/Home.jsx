@@ -14,8 +14,6 @@ import Image6 from '../../assets/Group3231.png';
 const Home = ({ navigation }) => {
     return (
         <SafeAreaView>
-
-
             <View >
                 <View >
                     <View style={styles.headerContent}>
@@ -30,11 +28,10 @@ const Home = ({ navigation }) => {
                                 </TouchableOpacity>
                             </View>
                             <View>
-
                                 <Text style={{ fontWeight: '700', fontSize: 22 }}>Hi, Alexander Rhys</Text>
                                 <Text style={{ fontWeight: '600', fontSize: 16, color: '#525252' }} >Welcome to EAM</Text>
                             </View>
-                            <View >
+                            <View>
                                 <View style={styles.dot}>
                                     <TouchableOpacity>
                                         <Badge size={10} style={{ top: 0, right: 5, position: 'absolute' }} />
@@ -49,9 +46,7 @@ const Home = ({ navigation }) => {
                             rightIcon='filter'
                         />
                     </View>
-
                     <ScrollView style={styles.scrollContainer}>
-
                         <View style={{ padding: 10 }}>
                             <View >
                                 <Card style={{ backgroundColor: 'white' }}>
@@ -74,7 +69,6 @@ const Home = ({ navigation }) => {
                             </View>
 
                         </View>
-
                         <View style={{ padding: 10 }}>
                             <View style={{ flexDirection: 'row', gap: 20 }}>
                                 <Card style={{ backgroundColor: 'white', flex: 1 }}>
@@ -192,8 +186,6 @@ const Home = ({ navigation }) => {
                                     </Card.Content>
                                 </Card> */}
                             </View>
-                                
-
                         </View>
                     </ScrollView>
                 </View>
@@ -209,7 +201,6 @@ const styles = StyleSheet.create({
         paddingTop: 40,
         paddingLeft: 20,
         paddingRight: 20,
-        // paddingBottom: 10,
     },
     name: {
         fontSize: 22,
