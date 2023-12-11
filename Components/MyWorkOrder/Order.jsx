@@ -82,7 +82,6 @@ const Order = () => {
                 </View>
             </View>
             <View style={{ borderBottomWidth: 1, }} />
-
             <FlatList style={{ marginBottom: 340 }}
                 data={tasks}
                 keyExtractor={(item) => item.id.toString()}
