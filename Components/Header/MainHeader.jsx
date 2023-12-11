@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Text, TouchableOpacity, StyleSheet, View, TextInput, Image } from "react-native";
 import { Ionicons, FontAwesome6, MaterialCommunityIcons } from "@expo/vector-icons";
 
-
+import { useNavigation } from '@react-navigation/native';
 import { Feather, MaterialIcons } from '@expo/vector-icons'
 import { bgColor } from "../../color";
 import { IconButton } from "react-native-paper";
 import SearchBar from "../../searchBar";
+
 
 const MainHeader = ({
     onPress,
@@ -46,6 +47,7 @@ const MainHeader = ({
                     placeholder="Search here.."
                     rightIcon='filter'
                 />
+
             </View>
 
         </View>

@@ -14,11 +14,15 @@ import Components from "./Componenets";
 import MPoints from "./MPoints";
 
 
+
 const MyWorkOrders = ({ navigation }) => {
     const [focusedIndex, setFocusedIndex] = useState(0);
     const handleCardPress = (index) => {
         setFocusedIndex(index);
     };
+
+   
+
     const data = [
         { icons: 'script-text-outline', name: 'Order' },
         { icons: 'account-cog-outline', name: ' Operations' },
@@ -36,7 +40,7 @@ const MyWorkOrders = ({ navigation }) => {
             <View >
                 <View key={index} >
                     <View  >
-                        <Card style={{ backgroundColor: isFocused ? bgColor : 'white', margin: 5 }}>
+                        <Card style={{ backgroundColor: isFocused ? bgColor : 'white', margin: 5, marginBottom: 50 }}>
                             {/* <Card.Content> */}
                             <TouchableOpacity onPress={() => handleCardPress(index)}>
                                 <View style={{ width: 70, height: 70, alignItems: 'center', justifyContent: 'center' }}>
