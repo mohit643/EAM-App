@@ -4,7 +4,8 @@ import { View } from 'react-native';
 import Login from '../Login/Login';
 import ResetPassword from '../Login/ResetPassword';
 import Tabs from '../Tabs/Tabs';
-
+import MyWorkOrders from '../MyWorkOrder/MyWorkOrders';
+import Order from '../MyWorkOrder/Order';
 
 const StackNavigation = () => {
     const Stack = createStackNavigator();
@@ -15,6 +16,9 @@ const StackNavigation = () => {
                 <Stack.Screen name='Login' component={Login} />
                 <Stack.Screen name='ResetPassword' component={ResetPassword} />
                 <Stack.Screen name='Tabs' component={Tabs} />
+                <Stack.Screen name='Order' component={Order} />
+                <Stack.Screen name='MyWorkOrders' component={MyWorkOrders} />
+
             </Stack.Navigator>
 
         </NavigationContainer>

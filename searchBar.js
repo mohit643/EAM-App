@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, TouchableOpacity, StyleSheet, View, TextInput } from "react-native";
 import { Ionicons, FontAwesome6, MaterialCommunityIcons } from "@expo/vector-icons";
 import { bgColor, placeHolderColor } from "./color";
@@ -10,15 +10,21 @@ const SearchBar = ({
     rightIcon,
     ...props
 }) => {
+    const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
+
+    const handlePressModal = () => {
+        setBottomSheetVisible(!bottomSheetVisible);
+    };
+
     return (
         <View style={{ flexDirection: "row", }}>
-            <View style={{ marginTop:10,marginBottom:10 }}>
+            <View style={{ marginTop: 10, marginBottom: 10 }}>
 
                 <View style={[styles.inputContainer]}>
                     <Ionicons name={iconName} style={{ color: placeHolderColor, fontSize: 22, marginRight: 10, }} />
                     <TextInput {...props} style={{ width: '80%' }} />
                     <TouchableOpacity
-                        onPress={onPress}
+                        onPress={handlePressModal}
                     >
                         <View>
                             <Ionicons name={rightIcon} style={{ color: bgColor, fontSize: 22, marginRight: 10, }} />
@@ -27,8 +33,10 @@ const SearchBar = ({
 
                 </View>
             </View>
-
+          
         </View>
+
+
     );
 };
 
@@ -38,7 +46,7 @@ const styles = StyleSheet.create({
 
     inputContainer: {
         height: 55,
-        backgroundColor: 'white',
+        backgroundColor: '#EEF6FC',
         flexDirection: 'row',
         paddingHorizontal: 10,
         borderWidth: 0.5,

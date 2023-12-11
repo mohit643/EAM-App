@@ -1,15 +1,12 @@
 import { View, Text, StyleSheet, Image, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
-import { Card, IconButton } from 'react-native-paper';
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Card, Icon, IconButton } from 'react-native-paper';
 import userImage from '../../assets/Oval.png'
 import { Badge } from 'react-native-paper';
 import SearchBar from "../../searchBar";
-import Image1 from '../../assets/Group327.png';
-import Image2 from '../../assets/Group328.png';
-import Image3 from '../../assets/Group329.png';
-import Image4 from '../../assets/Group330.png';
-import Image5 from '../../assets/Group332.png';
-import Image6 from '../../assets/Group3231.png';
+import { Ionicons, Foundation, MaterialCommunityIcons } from "@expo/vector-icons";
+
+
+import { bgColor } from "../../color";
 
 const Home = ({ navigation }) => {
     return (
@@ -45,29 +42,29 @@ const Home = ({ navigation }) => {
                             placeholder="Search here.."
                             rightIcon='filter'
                         />
+
                     </View>
                     <ScrollView style={styles.scrollContainer}>
                         <View style={{ padding: 10 }}>
                             <View >
                                 <Card style={{ backgroundColor: 'white' }}>
                                     <Card.Content >
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                                            <View>
-                                                <View style={styles.dot}>
-                                                    <Image
-                                                        source={Image5}
-                                                    />
+                                        <TouchableOpacity onPress={() => navigation.navigate('MyWorkOrders')}>
+                                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                <View>
+                                                    <View style={styles.dot}>
+                                                        <Ionicons name="documents-sharp" size={30} color={bgColor} />
+                                                    </View>
+                                                </View>
+                                                <View style={{ alignItems: 'flex-end' }}>
+                                                    <Text style={{ fontSize: 28, fontWeight: '700' }}>30</Text>
+                                                    <Text style={{ fontSize: 16, fontWeight: '600' }}>My Works Orers</Text>
                                                 </View>
                                             </View>
-                                            <View style={{ alignItems: 'flex-end' }}>
-                                                <Text style={{ fontSize: 28, fontWeight: '700' }}>30</Text>
-                                                <Text style={{ fontSize: 16, fontWeight: '600' }}>My Works Orers</Text>
-                                            </View>
-                                        </View>
+                                        </TouchableOpacity>
                                     </Card.Content>
                                 </Card>
                             </View>
-
                         </View>
                         <View style={{ padding: 10 }}>
                             <View style={{ flexDirection: 'row', gap: 20 }}>
@@ -76,9 +73,7 @@ const Home = ({ navigation }) => {
                                         <View >
                                             <View style={{ alignItems: 'flex-end' }}>
                                                 <View style={styles.dot}>
-                                                    <Image
-                                                        source={Image6}
-                                                    />
+                                                    <Foundation name="page-search" size={30} color={bgColor} />
                                                 </View>
                                             </View>
                                             <View >
@@ -93,9 +88,11 @@ const Home = ({ navigation }) => {
                                         <View >
                                             <View style={{ alignItems: 'flex-end' }}>
                                                 <View style={styles.dot}>
-                                                    <Image
+                                                    {/* <Image
                                                         source={Image4}
-                                                    />
+                                                    /> */}
+                                                    <MaterialCommunityIcons name="book-settings-outline" size={30} color={bgColor} />
+
                                                 </View>
                                             </View>
                                             <View >
@@ -116,9 +113,7 @@ const Home = ({ navigation }) => {
                                         <View >
                                             <View style={{ alignItems: 'flex-end' }}>
                                                 <View style={styles.dot}>
-                                                    <Image
-                                                        source={Image3}
-                                                    />
+                                                    <MaterialCommunityIcons name="bell-badge-outline" size={30} color={bgColor} />
                                                 </View>
                                             </View>
                                             <View >
@@ -133,9 +128,7 @@ const Home = ({ navigation }) => {
                                         <View >
                                             <View style={{ alignItems: 'flex-end' }}>
                                                 <View style={styles.dot}>
-                                                    <Image
-                                                        source={Image2}
-                                                    />
+                                                    <Ionicons name="documents-outline" size={30} color={bgColor} />
                                                 </View>
                                             </View>
                                             <View >
@@ -156,9 +149,7 @@ const Home = ({ navigation }) => {
                                         <View >
                                             <View style={{ alignItems: 'flex-end' }}>
                                                 <View style={styles.dot}>
-                                                    <Image
-                                                        source={Image1}
-                                                    />
+                                                    <MaterialCommunityIcons name="cloud-sync-outline" size={30} color={bgColor} />
                                                 </View>
                                             </View>
                                             <View >
