@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Text, TouchableOpacity, StyleSheet, View, TextInput, Image } from "react-native";
+import React, { useState, useRef } from "react";
+import { Text, TouchableOpacity, StyleSheet, View, TextInput, Image, DrawerLayoutAndroid } from "react-native";
 import { Ionicons, FontAwesome6, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { useNavigation } from '@react-navigation/native';
@@ -19,37 +19,68 @@ const MainHeader = ({
     iconColor,
     ...props
 }) => {
+    const drawer = useRef(null);
+    const openDrawer = () => {
+        drawer.current.openDrawer();
+    };
+
+
+
+
 
 
     return (
         <View style={styles.header}>
-            <View style={styles.headerContent}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 10, justifyContent: 'space-between' }}>
-                    <TouchableOpacity>
-                        <View>
-                            <Feather name='bar-chart-2' size={26} color={iconColor} style={{ transform: [{ rotate: '90deg' }], }} />
-                        </View>
-                    </TouchableOpacity>
+            <DrawerLayoutAndroid
+                ref={drawer}
+                drawerWidth={200}
+                drawerPosition="left"
+                renderNavigationView={() => (
+                    <>
 
-                    <View>
-                        <Text style={{ fontWeight: '700', fontSize: 20, color: '#383636' }}>{text}</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', gap: 10 }}>
-                        <TouchableOpacity>
-                            <View style={styles.dot}>
-                                <IconButton icon="dots-vertical" />
+                        <View style={styles.drawerContent}>
+                            {/* Add your drawer content here */}
+                            <Text>Drawer Section</Text>
+                            {/* Close drawer button */}
+                            <IconButton
+                                icon="close"
+                                onPress={() => drawer.current.closeDrawer()}
+                                color="#000"
+                                size={30}
+                            />
+                        </View>
+
+                    </>
+                )}
+                // style={{ flex: 1 }}
+            >
+
+                <View style={styles.headerContent}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 10, justifyContent: 'space-between' }}>
+                        <TouchableOpacity onPress={openDrawer}>
+                            <View>
+                                <Feather name='bar-chart-2' size={26} color={iconColor} style={{ transform: [{ rotate: '90deg' }], }} />
                             </View>
                         </TouchableOpacity>
+
+                        <View>
+                            <Text style={{ fontWeight: '700', fontSize: 20, color: '#383636' }}>{text}</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', gap: 10 }}>
+                            <TouchableOpacity>
+                                <View style={styles.dot}>
+                                    <IconButton icon="dots-vertical" />
+                                </View>
+                            </TouchableOpacity>
+                        </View>
                     </View>
+                    <SearchBar
+                        iconName='search'
+                        placeholder="Search here.."
+                        rightIcon='filter'
+                    />
                 </View>
-                <SearchBar
-                    iconName='search'
-                    placeholder="Search here.."
-                    rightIcon='filter'
-                />
-
-            </View>
-
+            </DrawerLayoutAndroid>
         </View>
     )
 };
@@ -70,7 +101,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#F4F4F4',
         borderRadius: 50,
         justifyContent: 'center', alignItems: 'center'
-    }
+    },
+    drawerContent: {
+        // zIndex: 999,
+        // height:700,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
 })
 
 

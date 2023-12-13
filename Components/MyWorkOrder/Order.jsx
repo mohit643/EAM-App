@@ -69,6 +69,7 @@ const Order = () => {
 
     return (
         <>
+
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
                 <View>
                     <Text style={{ fontSize: 18, fontWeight: '700' }}>
@@ -82,15 +83,14 @@ const Order = () => {
                 </View>
             </View>
             <View style={{ borderBottomWidth: 1, }} />
-            <FlatList style={{ marginBottom: 340 }}
+            <FlatList style={{ height: 480 }}
                 data={tasks}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
                     <View style={{ padding: 10, }}>
-
                         <Card>
-                            <Card.Actions style={{ flexDirection: 'row', justifyContent: 'space-between', gap: 170 }}>
-                                <View style={{ backgroundColor: '#B2E7E8', borderRadius: 20 }}>
+                            <Card.Actions style={{}}>
+                                <View style={{ backgroundColor: '#B2E7E8', borderRadius: 20, left: 0, position: 'absolute' }}>
                                     <View style={{ padding: 4 }} >
                                         <Text style={{ fontSize: 12, fontWeight: '700' }}>
                                             Order no # 6751345
@@ -103,7 +103,6 @@ const Order = () => {
                                             <Feather name="arrow-up-right" size={20} color={'#2EA0A1'} />
                                         </View>
                                     </TouchableOpacity>
-
                                 </View>
                             </Card.Actions>
                             <Card.Content >
@@ -161,6 +160,7 @@ const Order = () => {
                     </View>
                 )}
             />
+
             <Modal isVisible={isModalVisible} style={{ backgroundColor: 'white', borderRadius: 20, margin: 20, marginTop: 80, marginBottom: 80 }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
                     <View >
