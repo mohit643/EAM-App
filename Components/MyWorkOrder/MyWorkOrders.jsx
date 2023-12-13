@@ -14,11 +14,15 @@ import Components from "./Componenets";
 import MPoints from "./MPoints";
 
 
+
 const MyWorkOrders = ({ navigation }) => {
     const [focusedIndex, setFocusedIndex] = useState(0);
     const handleCardPress = (index) => {
         setFocusedIndex(index);
     };
+
+
+
     const data = [
         { icons: 'script-text-outline', name: 'Order' },
         { icons: 'account-cog-outline', name: ' Operations' },
@@ -33,10 +37,10 @@ const MyWorkOrders = ({ navigation }) => {
         const isFocused = index === focusedIndex;
         const name = item.name
         return (
-            <View >
+            < >
                 <View key={index} >
-                    <View  >
-                        <Card style={{ backgroundColor: isFocused ? bgColor : 'white', margin: 5 }}>
+                    <View style={{  }} >
+                        <Card style={{ backgroundColor: isFocused ? bgColor : 'white', margin: 5, }}>
                             {/* <Card.Content> */}
                             <TouchableOpacity onPress={() => handleCardPress(index)}>
                                 <View style={{ width: 70, height: 70, alignItems: 'center', justifyContent: 'center' }}>
@@ -49,7 +53,7 @@ const MyWorkOrders = ({ navigation }) => {
                     </View>
 
                 </View>
-            </View>
+            </>
 
         );
     };
@@ -60,8 +64,24 @@ const MyWorkOrders = ({ navigation }) => {
             <View style={{ backgroundColor: 'white' }}>
                 <MainHeader text={"My Work Orders"} iconColor={"#383636"} />
             </View>
-            <SwiperFlatList
-                style={{}}
+            <View>
+                <SwiperFlatList
+                    data={data}
+                    renderItem={({ item, index }) => renderCard(item, index)}
+                />
+                {
+                    focusedIndex === 0 ? <Order /> :
+                        focusedIndex === 1 ? <Operation /> :
+                            focusedIndex === 2 ? <Inspections /> :
+                                focusedIndex === 3 ? <Permits /> :
+                                    focusedIndex === 4 ? <Documents /> :
+                                        focusedIndex === 5 ? <Components /> :
+                                            focusedIndex === 6 ? <MPoints /> :
+                                                null
+                }
+            </View>
+            {/* <SwiperFlatList
+                // style={{zIndex: "-99"}}
                 data={data}
                 renderItem={({ item, index }) => renderCard(item, index)}
             />
@@ -74,7 +94,7 @@ const MyWorkOrders = ({ navigation }) => {
                                     focusedIndex === 5 ? <Components /> :
                                         focusedIndex === 6 ? <MPoints /> :
                                             null
-            }
+            } */}
         </View>
     )
 };
