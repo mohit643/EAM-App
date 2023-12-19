@@ -4,11 +4,12 @@ import userImage from '../../assets/Oval.png'
 import { Badge } from 'react-native-paper';
 import SearchBar from "../../searchBar";
 import { Ionicons, Foundation, MaterialCommunityIcons } from "@expo/vector-icons";
-
+import { useNavigation } from "@react-navigation/native";
 
 import { bgColor } from "../../color";
 
 const Home = ({ navigation }) => {
+    const navigation = useNavigation();
     return (
         <SafeAreaView>
             <View >
@@ -17,6 +18,7 @@ const Home = ({ navigation }) => {
                         <View style={{ flexDirection: 'row', gap: 20, alignItems: 'center', }}>
                             <View>
                                 <TouchableOpacity
+                                    onPress={() => navigation.openDrawer()}
                                 // onPress={() => navigation.navigate('MyProfile')}
                                 >
                                     <Image
@@ -42,7 +44,6 @@ const Home = ({ navigation }) => {
                             placeholder="Search here.."
                             rightIcon='filter'
                         />
-
                     </View>
                     <ScrollView style={styles.scrollContainer}>
                         <View style={{ padding: 10 }}>
@@ -110,17 +111,19 @@ const Home = ({ navigation }) => {
                             <View style={{ flexDirection: 'row', gap: 20 }}>
                                 <Card style={{ backgroundColor: 'white', flex: 1 }}>
                                     <Card.Content >
-                                        <View >
-                                            <View style={{ alignItems: 'flex-end' }}>
-                                                <View style={styles.dot}>
-                                                    <MaterialCommunityIcons name="bell-badge-outline" size={30} color={bgColor} />
+                                        <TouchableOpacity onPress={() => navigation.navigate('AddNotification')}>
+                                            <View >
+                                                <View style={{ alignItems: 'flex-end' }}>
+                                                    <View style={styles.dot}>
+                                                        <MaterialCommunityIcons name="bell-badge-outline" size={30} color={bgColor} />
+                                                    </View>
+                                                </View>
+                                                <View >
+                                                    <Text style={styles.value}>30</Text>
+                                                    <Text style={styles.cardText}>My Notification</Text>
                                                 </View>
                                             </View>
-                                            <View >
-                                                <Text style={styles.value}>30</Text>
-                                                <Text style={styles.cardText}>My Notification</Text>
-                                            </View>
-                                        </View>
+                                        </TouchableOpacity>
                                     </Card.Content>
                                 </Card>
                                 <Card style={{ backgroundColor: 'white', flex: 1 }}>
