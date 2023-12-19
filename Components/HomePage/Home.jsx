@@ -4,12 +4,11 @@ import userImage from '../../assets/Oval.png'
 import { Badge } from 'react-native-paper';
 import SearchBar from "../../searchBar";
 import { Ionicons, Foundation, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+
 
 import { bgColor } from "../../color";
 
 const Home = ({ navigation }) => {
-    const navigation = useNavigation();
     return (
         <SafeAreaView>
             <View >
@@ -18,7 +17,6 @@ const Home = ({ navigation }) => {
                         <View style={{ flexDirection: 'row', gap: 20, alignItems: 'center', }}>
                             <View>
                                 <TouchableOpacity
-                                    onPress={() => navigation.openDrawer()}
                                 // onPress={() => navigation.navigate('MyProfile')}
                                 >
                                     <Image
