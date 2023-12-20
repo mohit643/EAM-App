@@ -3,15 +3,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 import { Checkbox, } from 'react-native-paper';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Input from "../../input";
 import DynamicButton from "../../button";
 import { bgColor, placeHolderColor, textLinkColor } from "../../color";
 import logo from '../../assets/logo.png'
+import { AuthContext } from "../Utils/AuthContext";
 
 
-const Login = ({ navigation }) => {
-
+const Login = () => {
+    const { login } = useContext(AuthContext);
     const [checked, setChecked] = useState(false);
     const [passwordVisibility, setPasswordVisibility] = useState(true);
 
@@ -69,7 +70,7 @@ const Login = ({ navigation }) => {
                         <DynamicButton
                             backgroundColor={bgColor}
                             text='Log In'
-                            onPress={() => navigation.navigate('Tabs')}
+                            onPress={() => login()}
                         />
                     </View>
                 </View>
