@@ -36,7 +36,7 @@ const AppStack = () => {
             }}
             initialRouteName="Home"
         >
-            <Tab.Screen name='DashboardNav' component={DashboardNav}
+            <Tab.Screen name='Home' component={DashboardNav}
 
                 options={{
                     headerShown: false,
