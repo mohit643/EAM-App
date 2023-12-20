@@ -21,7 +21,7 @@ const Dashboard = ({ navigation }) => {
                         <View style={{ flexDirection: 'row', gap: 20, alignItems: 'center', }}>
                             <View>
                                 <TouchableOpacity
-                                // onPress={() => navigation.navigate('MyProfile')}
+                                    onPress={() => navigation.navigate('My Profile')}
                                 >
                                     <Image
                                         source={userImage}
