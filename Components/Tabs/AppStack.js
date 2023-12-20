@@ -6,11 +6,12 @@ import Settings from "../SettingPage/Settings";
 import Sync from "../SyncPage/Sync";
 import { bgColor, placeHolderColor } from "../../color";
 import { View } from "react-native-animatable";
+import DashboardNav from "../StackNavigation/DashboardNav";
 
 
 const Tab = createBottomTabNavigator();
 
-const Tabs = ({ navigation }) => {
+const AppStack = () => {
     return (
         <Tab.Navigator
             screenOptions={{
@@ -33,8 +34,9 @@ const Tabs = ({ navigation }) => {
                 },
 
             }}
+            initialRouteName="Home"
         >
-            <Tab.Screen name='Home' component={Home}
+            <Tab.Screen name='DashboardNav' component={DashboardNav}
 
                 options={{
                     headerShown: false,
@@ -102,4 +104,4 @@ const Tabs = ({ navigation }) => {
         </Tab.Navigator>
     );
 }
-export default Tabs;
+export default AppStack;

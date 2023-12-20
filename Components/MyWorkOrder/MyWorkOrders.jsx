@@ -4,7 +4,8 @@ import { Card } from "react-native-paper";
 import { Ionicons, Foundation, MaterialCommunityIcons, FontAwesome6, Feather } from "@expo/vector-icons";
 import { bgColor } from "../../color";
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
-import { useState } from "react";
+
+import React, { useState } from "react";
 import Order from "./Order";
 import Operation from "./Operation";
 import Inspections from "./Inspections";
@@ -12,16 +13,17 @@ import Permits from "./Permits";
 import Documents from "./Documents";
 import Components from "./Componenets";
 import MPoints from "./MPoints";
-
-
+import { TopHeader } from "../../TopHeader";
 
 const MyWorkOrders = ({ navigation }) => {
+    React.useLayoutEffect(() => {
+        TopHeader(navigation);
+    }, [navigation]);
+
     const [focusedIndex, setFocusedIndex] = useState(0);
     const handleCardPress = (index) => {
         setFocusedIndex(index);
     };
-
-
 
     const data = [
         { icons: 'script-text-outline', name: 'Order' },
@@ -39,7 +41,7 @@ const MyWorkOrders = ({ navigation }) => {
         return (
             < >
                 <View key={index} >
-                    <View style={{  }} >
+                    <View style={{}} >
                         <Card style={{ backgroundColor: isFocused ? bgColor : 'white', margin: 5, }}>
                             {/* <Card.Content> */}
                             <TouchableOpacity onPress={() => handleCardPress(index)}>
@@ -62,7 +64,7 @@ const MyWorkOrders = ({ navigation }) => {
     return (
         <View>
             <View style={{ backgroundColor: 'white' }}>
-                <MainHeader text={"My Work Orders"} iconColor={"#383636"} />
+                {/* <MainHeader text={"My Work Orders"} iconColor={"#383636"} /> */}
             </View>
             <View>
                 <SwiperFlatList
@@ -80,21 +82,6 @@ const MyWorkOrders = ({ navigation }) => {
                                                 null
                 }
             </View>
-            {/* <SwiperFlatList
-                // style={{zIndex: "-99"}}
-                data={data}
-                renderItem={({ item, index }) => renderCard(item, index)}
-            />
-            {
-                focusedIndex === 0 ? <Order /> :
-                    focusedIndex === 1 ? <Operation /> :
-                        focusedIndex === 2 ? <Inspections /> :
-                            focusedIndex === 3 ? <Permits /> :
-                                focusedIndex === 4 ? <Documents /> :
-                                    focusedIndex === 5 ? <Components /> :
-                                        focusedIndex === 6 ? <MPoints /> :
-                                            null
-            } */}
         </View>
     )
 };

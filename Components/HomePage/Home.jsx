@@ -7,8 +7,21 @@ import { Ionicons, Foundation, MaterialCommunityIcons } from "@expo/vector-icons
 
 
 import { bgColor } from "../../color";
+import { useContext } from "react";
+import { AuthContext } from "../Utils/AuthContext";
 
 const Home = ({ navigation }) => {
+
+
+    const handlePress = () => {
+        if (props.redirection) {
+            if (props.screen) {
+                navigation.navigate(props.redirection, { screen: props.screen });
+            } else {
+                navigation.navigate(props.redirection);
+            }
+        }
+    };
     return (
         <SafeAreaView>
             <View >
@@ -17,6 +30,7 @@ const Home = ({ navigation }) => {
                         <View style={{ flexDirection: 'row', gap: 20, alignItems: 'center', }}>
                             <View>
                                 <TouchableOpacity
+                                    onPress={() => navigation.openDrawer()}
                                 // onPress={() => navigation.navigate('MyProfile')}
                                 >
                                     <Image
@@ -48,7 +62,7 @@ const Home = ({ navigation }) => {
                             <View >
                                 <Card style={{ backgroundColor: 'white' }}>
                                     <Card.Content >
-                                        <TouchableOpacity onPress={() => navigation.navigate('MyWorkOrders')}>
+                                        <TouchableOpacity onPress={() => navigation.navigate("My Work Orders")}>
                                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                                                 <View>
                                                     <View style={styles.dot}>

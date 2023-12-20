@@ -1,16 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './Components/Login/Login';
-import StackNavigation from './Components/StackNavigation/StackNavigation';
+
 import { NavigationContainer } from '@react-navigation/native';
+import AppNav from './Components/Tabs/AppNav';
+import { AuthProvider } from './Components/Utils/AuthContext';
 
 
 export default function App() {
   return (
 
-    
-      <StackNavigation />
 
+    <AuthProvider>
+      <AppNav />
+    </AuthProvider>
 
 
 
