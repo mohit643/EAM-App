@@ -10,18 +10,9 @@ import { bgColor } from "../../color";
 import { useContext } from "react";
 import { AuthContext } from "../Utils/AuthContext";
 
-const Home = ({ navigation }) => {
+const Dashboard = ({ navigation }) => {
 
 
-    const handlePress = () => {
-        if (props.redirection) {
-            if (props.screen) {
-                navigation.navigate(props.redirection, { screen: props.screen });
-            } else {
-                navigation.navigate(props.redirection);
-            }
-        }
-    };
     return (
         <SafeAreaView>
             <View >
@@ -30,7 +21,6 @@ const Home = ({ navigation }) => {
                         <View style={{ flexDirection: 'row', gap: 20, alignItems: 'center', }}>
                             <View>
                                 <TouchableOpacity
-                                    onPress={() => navigation.openDrawer()}
                                 // onPress={() => navigation.navigate('MyProfile')}
                                 >
                                     <Image
@@ -123,7 +113,7 @@ const Home = ({ navigation }) => {
                             <View style={{ flexDirection: 'row', gap: 20 }}>
                                 <Card style={{ backgroundColor: 'white', flex: 1 }}>
                                     <Card.Content >
-                                        <TouchableOpacity onPress={() => navigation.navigate('AddNotification')}>
+                                        <TouchableOpacity onPress={() => navigation.navigate('Add Notification')}>
                                             <View >
                                                 <View style={{ alignItems: 'flex-end' }}>
                                                     <View style={styles.dot}>
@@ -238,4 +228,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center', alignItems: 'center'
     }
 })
-export default Home;
+export default Dashboard;

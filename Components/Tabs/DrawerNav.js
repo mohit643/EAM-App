@@ -6,6 +6,8 @@ import { MaterialCommunityIcons, Feather, Ionicons, MaterialIcons, Octicons } fr
 import { bgColor } from "../../color";
 import { AuthContext } from "../Utils/AuthContext";
 import Login from "../Login/Login";
+import CreateWorkOrder from "../MyWorkOrder/CreateWorkOrder";
+import CreateOperation from "../MyWorkOrder/CreateOperation";
 
 const Drawer = createDrawerNavigator();
 
@@ -91,8 +93,9 @@ const DrawerNav = () => {
                     )
                 }}
             />
-            <Drawer.Screen name="Create Work Order" component={Order}
+            <Drawer.Screen name="Create Work Order" component={CreateWorkOrder}
                 options={{
+                    headerShown: true,
                     drawerIcon: ({ focused, size }) => (
                         <MaterialCommunityIcons
                             name={"note-check"}
@@ -124,8 +127,9 @@ const DrawerNav = () => {
                     )
                 }}
             />
-            <Drawer.Screen name="Create Operation" component={Order}
+            <Drawer.Screen name="Create Operation" component={CreateOperation}
                 options={{
+                    headerShown: true,
                     drawerIcon: ({ focused, size }) => (
                         <MaterialIcons
                             name={"note-add"}

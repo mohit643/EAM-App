@@ -2,7 +2,7 @@ import { View, Text } from "react-native-animatable"
 import MainHeader from "../Header/MainHeader";
 import Header from "../Header/Header";
 import { Card, Switch, TextInput } from 'react-native-paper';
-import { useState } from "react";
+import React, { useState } from "react";
 import Input from "../../input";
 import { Ionicons, FontAwesome, MaterialCommunityIcons, Fontisto, Feather } from "@expo/vector-icons";
 import TextInputField from "../../TextInputField";
@@ -17,8 +17,13 @@ import ItemDetails from "./ItemDetails";
 import Causes from "./Causes";
 import Activities from "./Activities";
 import Task from "./Task";
+import { TopHeader } from "../../TopHeader";
 
-const AddNotification = () => {
+const AddNotification = ({ navigation }) => {
+    React.useLayoutEffect(() => {
+        TopHeader(navigation);
+    }, [navigation]);
+
     const [open, setOpen] = useState(false);
     const [isModalVisible, setModalVisible] = useState(false);
     const [selectedOrder, setSelectedOrder] = useState(null);
@@ -126,7 +131,6 @@ const AddNotification = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View>
-                <Header text={'Add Notification'} />
             </View>
             <View style={{ padding: 10, paddingBottom: 0, }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
