@@ -68,136 +68,136 @@ const MPoints = () => {
 
     return (
         <>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10, }}>
-                <View>
-                    <Text style={{ fontSize: 18, fontWeight: '700' }}>
-                        M Points
-                    </Text>
-                </View>
-                <View >
-                    <Text style={{ fontSize: 14, fontWeight: '700' }}>
-                        Total Orders : {tasks.length}
-                    </Text>
-                </View>
-            </View>
-            <View style={{ borderBottomWidth: 1, }} />
-            <FlatList style={{ height: 480 }}
-                data={tasks}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (
-                    <View style={{ padding: 10, }}>
-
-                        <Card>
-
-
-                            <Card.Actions>
-                                <View style={{ position: 'absolute', top: 5, right: 5 }}>
-                                    <TouchableOpacity onPress={handleModalOpen}>
-                                        <View style={styles.dot}>
-                                            <Feather name="arrow-up-right" size={20} color={'#2EA0A1'} />
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                            </Card.Actions>
-                            <Card.Content style={{}} >
-                                <View style={{ flexDirection: 'row', }}>
-
-                                    <View style={{ width: 110, }}>
-                                        <Text style={styles.cardText}>Points</Text>
-                                        <Text>{item.Points}</Text>
-                                    </View>
-
-
-                                    <View style={{ width: 90, }}>
-                                        <Text style={styles.cardText}>Position</Text>
-                                        <Text>{item.Position}</Text>
-                                    </View>
-
-
-                                    <View style={{ width: 100, }}>
-                                        <Text style={styles.cardText}>Description</Text>
-                                        <Text>{item.Description}</Text>
-
-                                    </View>
-
-                                </View>
-                                <View style={{ flexDirection: 'row', }}>
-
-                                    <View style={{ width: 110, }}>
-                                        <Text style={styles.cardText}>Last Reading</Text>
-                                        <Text>{item.LastReading}</Text>
-                                    </View>
-
-
-                                    <View style={{ width: 90, }}>
-                                        <Text style={styles.cardText}>Code</Text>
-                                        <Text>{item.Code}</Text>
-                                    </View>
-
-
-                                    <View style={{ width: 90, }}>
-                                        <Text style={styles.cardText}>Date</Text>
-                                        <Text>{item.Date}</Text>
-
-                                    </View>
-
-                                </View>
-
-                            </Card.Content>
-                        </Card>
-                    </View>
-                )}
-            />
-            <Modal isVisible={isModalVisible} style={{ backgroundColor: 'white', borderRadius: 20, margin: 20, marginTop: 80, marginBottom: 170 }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
-                    <View >
-                        <Text style={styles.cardText}>
-                            Operation Status
+            <View style={{ height: 460 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10, }}>
+                    <View>
+                        <Text style={{ fontSize: 18, fontWeight: '700' }}>
+                            M Points
                         </Text>
                     </View>
                     <View >
-                        <TouchableOpacity onPress={handleModalClose}>
-                            <Fontisto name="close" size={20} color={rejectColor} />
-                        </TouchableOpacity>
-
+                        <Text style={{ fontSize: 14, fontWeight: '700' }}>
+                            Total Orders : {tasks.length}
+                        </Text>
                     </View>
-
                 </View>
-
-                <View style={{ borderBottomWidth: 1, borderColor: '#9E9E9E' }} />
-
-                <FlatList
-                    style={{ width: "100%", }}
-                    data={data}
+                <View style={{ borderBottomWidth: 1, }} />
+                <FlatList style={{ height: 480 }}
+                    data={tasks}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item }) => (
-                        <TouchableOpacity onLongPress={() => onLongPress(item.id)}>
-                            <View style={{ borderWidth: 1, padding: 10, margin: 10, borderRadius: 8, flexDirection: 'row', justifyContent: 'space-between', borderColor: selectedItems.includes(item.id) == '' ? '#DEDBDD' : bgColor }}>
-                                <Text>
-                                    {item.status}
-                                </Text>
-                                {selectedItems.includes(item.id) && (
-                                    <MaterialCommunityIcons name="check-circle-outline" size={20} color={bgColor} />
-                                )}
-                            </View>
-                        </TouchableOpacity>
+                        <View style={{ padding: 10, }}>
+
+                            <Card>
+
+
+                                <Card.Actions>
+                                    <View style={{ position: 'absolute', top: 5, right: 5 }}>
+                                        <TouchableOpacity onPress={handleModalOpen}>
+                                            <View style={styles.dot}>
+                                                <Feather name="arrow-up-right" size={20} color={'#2EA0A1'} />
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
+                                </Card.Actions>
+                                <Card.Content style={{}} >
+                                    <View style={{ flexDirection: 'row', }}>
+
+                                        <View style={{ width: 110, }}>
+                                            <Text style={styles.cardText}>Points</Text>
+                                            <Text>{item.Points}</Text>
+                                        </View>
+
+
+                                        <View style={{ width: 90, }}>
+                                            <Text style={styles.cardText}>Position</Text>
+                                            <Text>{item.Position}</Text>
+                                        </View>
+
+
+                                        <View style={{ width: 100, }}>
+                                            <Text style={styles.cardText}>Description</Text>
+                                            <Text>{item.Description}</Text>
+
+                                        </View>
+
+                                    </View>
+                                    <View style={{ flexDirection: 'row', }}>
+
+                                        <View style={{ width: 110, }}>
+                                            <Text style={styles.cardText}>Last Reading</Text>
+                                            <Text>{item.LastReading}</Text>
+                                        </View>
+
+
+                                        <View style={{ width: 90, }}>
+                                            <Text style={styles.cardText}>Code</Text>
+                                            <Text>{item.Code}</Text>
+                                        </View>
+
+
+                                        <View style={{ width: 90, }}>
+                                            <Text style={styles.cardText}>Date</Text>
+                                            <Text>{item.Date}</Text>
+
+                                        </View>
+
+                                    </View>
+
+                                </Card.Content>
+                            </Card>
+                        </View>
                     )}
                 />
+                <Modal isVisible={isModalVisible} style={{ backgroundColor: 'white', borderRadius: 20, margin: 20, marginTop: 80, marginBottom: 170 }}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
+                        <View >
+                            <Text style={styles.cardText}>
+                                Operation Status
+                            </Text>
+                        </View>
+                        <View >
+                            <TouchableOpacity onPress={handleModalClose}>
+                                <Fontisto name="close" size={20} color={rejectColor} />
+                            </TouchableOpacity>
 
-                <View style={{ padding: 20, flexDirection: 'row', justifyContent: 'space-between', gap: 20 }}>
-                    <View style={{ flex: 1 }}>
-                        <DynamicButton text={'Cancel'} backgroundColor={rejectColor} />
+                        </View>
+
                     </View>
-                    <View style={{ flex: 1 }}>
-                        <DynamicButton text={'Apply'} backgroundColor={bgColor} />
+
+                    <View style={{ borderBottomWidth: 1, borderColor: '#9E9E9E' }} />
+
+                    <FlatList
+                        style={{ width: "100%", }}
+                        data={data}
+                        keyExtractor={(item) => item.id.toString()}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity onLongPress={() => onLongPress(item.id)}>
+                                <View style={{ borderWidth: 1, padding: 10, margin: 10, borderRadius: 8, flexDirection: 'row', justifyContent: 'space-between', borderColor: selectedItems.includes(item.id) == '' ? '#DEDBDD' : bgColor }}>
+                                    <Text>
+                                        {item.status}
+                                    </Text>
+                                    {selectedItems.includes(item.id) && (
+                                        <MaterialCommunityIcons name="check-circle-outline" size={20} color={bgColor} />
+                                    )}
+                                </View>
+                            </TouchableOpacity>
+                        )}
+                    />
+
+                    <View style={{ padding: 20, flexDirection: 'row', justifyContent: 'space-between', gap: 20 }}>
+                        <View style={{ flex: 1 }}>
+                            <DynamicButton text={'Cancel'} backgroundColor={rejectColor} />
+                        </View>
+                        <View style={{ flex: 1 }}>
+                            <DynamicButton text={'Apply'} backgroundColor={bgColor} />
+                        </View>
+
+
                     </View>
 
-
-                </View>
-
-
-
-            </Modal>
+                </Modal>
+            </View>
         </>
 
     )

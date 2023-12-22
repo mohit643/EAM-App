@@ -41,7 +41,7 @@ const DrawerNav = () => {
 
             <Drawer.Screen name="My Profile" component={MyProfile}
                 options={{
-                    // headerShown: true,
+                    headerShown: true,
                     drawerIcon: ({ focused, size }) => (
                         <Feather
                             name={"user"}

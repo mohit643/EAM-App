@@ -14,6 +14,8 @@ import Documents from "./Documents";
 import Components from "./Componenets";
 import MPoints from "./MPoints";
 import { TopHeader } from "../../TopHeader";
+import SearchBar from "../../searchBar";
+import OrderDetails from "./OrderDetails";
 
 const MyWorkOrders = ({ navigation }) => {
     React.useLayoutEffect(() => {
@@ -63,8 +65,12 @@ const MyWorkOrders = ({ navigation }) => {
 
     return (
         <View>
-            <View style={{ backgroundColor: 'white' }}>
-                {/* <MainHeader text={"My Work Orders"} iconColor={"#383636"} /> */}
+            <View style={{ backgroundColor: bgColor, paddingLeft: 10, paddingRight: 10 }}>
+                <SearchBar
+                    iconName='search'
+                    placeholder="Search here.."
+                    rightIcon='filter'
+                />
             </View>
             <View>
                 <SwiperFlatList

@@ -11,7 +11,7 @@ export const TopHeader = (navigation) => {
     headerLeft: () => (
       <View style={{ marginLeft: 10 }}>
         <TouchableOpacity
-          style={{ marginLeft: 10, marginRight: 40 }}
+          style={{ marginLeft: 10, }}
           onPress={() => {
             navigation.openDrawer();
           }}>
@@ -28,6 +28,7 @@ export const TopHeader = (navigation) => {
         </TouchableOpacity>
       </View>
     ),
+    headerTitleAlign: "center",
     headerStyle: {
       backgroundColor: bgColor,
       height: 100,
