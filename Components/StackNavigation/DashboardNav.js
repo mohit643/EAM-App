@@ -9,6 +9,8 @@ import AddNotification from '../My Notification/AddNotification';
 import CreateWorkOrder from '../MyWorkOrder/CreateWorkOrder';
 import Dashboard from '../HomePage/Home';
 import AppStack from '../Tabs/AppStack';
+import MyProfile from '../My Profile/MyProfile';
+import OrderDetails from '../MyWorkOrder/OrderDetails';
 
 const DashboardNav = () => {
     const Stack = createStackNavigator();
@@ -37,6 +39,8 @@ const DashboardNav = () => {
                 name='Add Notification'
                 options={{ headerShown: true }}
                 component={AddNotification} />
+                
+           
 
         </Stack.Navigator>
 

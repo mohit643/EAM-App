@@ -8,6 +8,7 @@ import { AuthContext } from "../Utils/AuthContext";
 import Login from "../Login/Login";
 import CreateWorkOrder from "../MyWorkOrder/CreateWorkOrder";
 import CreateOperation from "../MyWorkOrder/CreateOperation";
+import MyProfile from "../My Profile/MyProfile";
 
 const Drawer = createDrawerNavigator();
 
@@ -26,7 +27,7 @@ const DrawerNav = () => {
                 drawerPosition: "left",
             }}
         >
-            <Drawer.Screen name="Home" component={AppStack}
+            <Drawer.Screen name="Dashboard" component={AppStack}
                 options={{
                     drawerIcon: ({ focused, size }) => (
                         <MaterialCommunityIcons
@@ -38,8 +39,9 @@ const DrawerNav = () => {
                 }}
             />
 
-            <Drawer.Screen name="My Profile" component={Order}
+            <Drawer.Screen name="My Profile" component={MyProfile}
                 options={{
+                    headerShown: true,
                     drawerIcon: ({ focused, size }) => (
                         <Feather
                             name={"user"}

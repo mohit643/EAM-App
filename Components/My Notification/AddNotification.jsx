@@ -405,6 +405,7 @@ const styles = StyleSheet.create({
     scrollView: {
         // backgroundColor: 'pink',
         // marginHorizontal: 20,
+        marginBottom:'20%'
     },
     input: {
         borderWidth: 0.5,
