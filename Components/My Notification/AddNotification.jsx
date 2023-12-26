@@ -58,7 +58,7 @@ const AddNotification = ({ navigation }) => {
     const renderCard = (item, index) => {
         const isFocused = index === focusedIndex;
         const name = item.name
-        console.log(';;', item.name);
+
         return (
             < >
                 <View key={index} >
