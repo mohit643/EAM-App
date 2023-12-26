@@ -9,7 +9,6 @@ import { TopHeader } from "../../TopHeader";
 import SearchBar from "../../searchBar";
 import { ScrollView } from "react-native-gesture-handler";
 
-
 const MyAssetes = ({ navigation }) => {
     const Header = () => {
         navigation.setOptions({
