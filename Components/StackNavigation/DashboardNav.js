@@ -10,7 +10,9 @@ import CreateWorkOrder from '../MyWorkOrder/CreateWorkOrder';
 import Dashboard from '../HomePage/Home';
 import AppStack from '../Tabs/AppStack';
 import MyProfile from '../My Profile/MyProfile';
-import OrderDetails from '../MyWorkOrder/OrderDetails';
+import MyAssetes from '../My Assetes/MyAssetes';
+import MyNotification from '../My Notification/MyNotification';
+
 
 const DashboardNav = () => {
     const Stack = createStackNavigator();
@@ -32,15 +34,23 @@ const DashboardNav = () => {
                 options={{ headerShown: true }}
                 component={MyWorkOrders} />
             <Stack.Screen
+                name='My Assetes'
+                options={{ headerShown: true }}
+                component={MyAssetes} />
+            <Stack.Screen
                 name='Create Work Order'
                 options={{ headerShown: true }}
                 component={CreateWorkOrder} />
+                 <Stack.Screen
+                name='My Notifications'
+                options={{ headerShown: true }}
+                component={MyNotification} />
             <Stack.Screen
                 name='Add Notification'
                 options={{ headerShown: true }}
                 component={AddNotification} />
-                
-           
+
+
 
         </Stack.Navigator>
 

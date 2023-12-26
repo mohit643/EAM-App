@@ -6,18 +6,25 @@ import { bgColor } from "../../color";
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
 
 import React, { useState } from "react";
-import Order from "./Order";
-import Operation from "./Operation";
-import Inspections from "./Inspections";
-import Permits from "./Permits";
-import Documents from "./Documents";
-import Components from "./Componenets";
-import MPoints from "./MPoints";
+
 import { TopHeader } from "../../TopHeader";
 import SearchBar from "../../searchBar";
+import Order from "../MyWorkOrder/Order";
+import Inspections from "../MyWorkOrder/Inspections";
+import Operation from "../MyWorkOrder/Operation";
+import Permits from "../MyWorkOrder/Permits";
+import Documents from "../MyWorkOrder/Documents";
+import MPoints from "../MyWorkOrder/MPoints";
+import Componenets from "../MyWorkOrder/Componenets";
+import General from "./General";
+import Items from "./Items";
+import CausesMyNotification from "./CausesMyNotification";
+import ActivitiesMyNotification from "./ActivitiesMyNotification";
+import TaskMyNotification from "./TaskMyNotification";
+import DocumentsMyNotification from "./DocumentsMyNotification";
 
 
-const MyWorkOrders = ({ navigation }) => {
+const MyNotification = ({ navigation }) => {
     React.useLayoutEffect(() => {
         TopHeader(navigation);
     }, [navigation]);
@@ -28,13 +35,13 @@ const MyWorkOrders = ({ navigation }) => {
     };
 
     const data = [
-        { icons: 'script-text-outline', name: 'Order' },
-        { icons: 'account-cog-outline', name: ' Operations' },
-        { icons: 'book-search-outline', name: 'Inspection' },
-        { icons: 'card-account-details-star-outline', name: 'Permits' },
+        { icons: 'clipboard-text-multiple-outline', name: 'General' },
+        { icons: 'clipboard-text-outline', name: ' Items' },
+        { icons: 'folder-download-outline', name: 'Causes' },
+        { icons: 'radioactive-circle-outline', name: 'Activities' },
+        { icons: 'clipboard-edit', name: 'Tasks' },
         { icons: 'file-document-outline', name: 'Documents' },
-        { icons: 'safe-square-outline', name: 'Components' },
-        { icons: 'file-settings', name: 'M Points' },
+        // { icons: 'file-settings', name: 'M Points' },
         // ... (other data)
     ];
     const renderCard = (item, index) => {
@@ -44,7 +51,7 @@ const MyWorkOrders = ({ navigation }) => {
             < >
                 <View key={index} >
                     <View style={{}} >
-                        <Card style={{ backgroundColor: isFocused ? bgColor : 'white', margin: 5, }}>
+                        <Card style={{ backgroundColor: isFocused ? bgColor : 'white', margin: 10, }}>
                             {/* <Card.Content> */}
                             <TouchableOpacity onPress={() => handleCardPress(index)}>
                                 <View style={{ width: 70, height: 70, alignItems: 'center', justifyContent: 'center' }}>
@@ -78,12 +85,12 @@ const MyWorkOrders = ({ navigation }) => {
                     renderItem={({ item, index }) => renderCard(item, index)}
                 />
                 {
-                    focusedIndex === 0 ? <Order /> :
-                        focusedIndex === 1 ? <Operation /> :
-                            focusedIndex === 2 ? <Inspections /> :
-                                focusedIndex === 3 ? <Permits /> :
-                                    focusedIndex === 4 ? <Documents /> :
-                                        focusedIndex === 5 ? <Components /> :
+                    focusedIndex === 0 ? <General /> :
+                        focusedIndex === 1 ? <Items /> :
+                            focusedIndex === 2 ? <CausesMyNotification /> :
+                                focusedIndex === 3 ? <ActivitiesMyNotification /> :
+                                    focusedIndex === 4 ? <TaskMyNotification /> :
+                                        focusedIndex === 5 ? <DocumentsMyNotification /> :
                                             focusedIndex === 6 ? <MPoints /> :
                                                 null
                 }
@@ -100,4 +107,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center', alignItems: 'center'
     }
 })
-export default MyWorkOrders;
+export default MyNotification;

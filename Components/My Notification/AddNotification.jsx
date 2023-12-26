@@ -48,18 +48,6 @@ const AddNotification = ({ navigation }) => {
     });
 
 
-    const data = [
-        { id: 1, status: "In Transit" },
-        { id: 2, status: "In Progress" },
-        { id: 3, status: "Paused" },
-        { id: 4, status: "Awaiting Parts" },
-        { id: 5, status: "Return to Planner" },
-        { id: 6, status: "My Work Complete" },
-        { id: 7, status: "Order Complete" },
-        { id: 8, status: "Teco Order" },
-
-        // Add more data as needed
-    ];
 
     const CardData = [
         { icons: 'script-text-outline', name: 'Item Detail' },
@@ -405,7 +393,7 @@ const styles = StyleSheet.create({
     scrollView: {
         // backgroundColor: 'pink',
         // marginHorizontal: 20,
-        marginBottom:'20%'
+
     },
     input: {
         borderWidth: 0.5,

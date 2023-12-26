@@ -88,21 +88,23 @@ const Dashboard = ({ navigation }) => {
                                 </Card>
                                 <Card style={{ backgroundColor: 'white', flex: 1 }}>
                                     <Card.Content >
-                                        <View >
-                                            <View style={{ alignItems: 'flex-end' }}>
-                                                <View style={styles.dot}>
-                                                    {/* <Image
+                                        <TouchableOpacity onPress={() => navigation.navigate("My Assetes")}>
+                                            <View >
+                                                <View style={{ alignItems: 'flex-end' }}>
+                                                    <View style={styles.dot}>
+                                                        {/* <Image
                                                         source={Image4}
                                                     /> */}
-                                                    <MaterialCommunityIcons name="book-settings-outline" size={30} color={bgColor} />
+                                                        <MaterialCommunityIcons name="book-settings-outline" size={30} color={bgColor} />
 
+                                                    </View>
+                                                </View>
+                                                <View >
+                                                    <Text style={styles.value}>30</Text>
+                                                    <Text style={styles.cardText}>My Assets</Text>
                                                 </View>
                                             </View>
-                                            <View >
-                                                <Text style={styles.value}>30</Text>
-                                                <Text style={styles.cardText}>My Assets</Text>
-                                            </View>
-                                        </View>
+                                        </TouchableOpacity>
                                     </Card.Content>
                                 </Card>
                             </View>
@@ -113,7 +115,7 @@ const Dashboard = ({ navigation }) => {
                             <View style={{ flexDirection: 'row', gap: 20 }}>
                                 <Card style={{ backgroundColor: 'white', flex: 1 }}>
                                     <Card.Content >
-                                        <TouchableOpacity onPress={() => navigation.navigate('Add Notification')}>
+                                        <TouchableOpacity onPress={() => navigation.navigate('My Notifications')}>
                                             <View >
                                                 <View style={{ alignItems: 'flex-end' }}>
                                                     <View style={styles.dot}>

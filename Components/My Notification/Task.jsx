@@ -16,69 +16,61 @@ const Task = () => {
     ]
 
     return (
-        <SafeAreaView style={styles.container}>
+        <>
             <View style={{ padding: 10 }}>
                 <Text style={{ fontSize: 18, fontWeight: '700', }}>
                     Task
                 </Text>
             </View>
             <View style={{ borderBottomWidth: 1, borderColor: '#9E9E9E' }} />
-            <ScrollView>
-
-                <View style={{ padding: 10 }}>
-
-                    <View style={{ flex: 1 }}>
-                        <TextInputField value={'C1'} />
-                    </View>
-                    <View style={{ flex: 1 }}>
-                        <TextInputField label={'Description'} value={'Stalling'} />
-                    </View>
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', gap: 20 }}>
+            <SafeAreaView>
+                <ScrollView>
+                    <View style={{ padding: 10 }}>
                         <View style={{ flex: 1 }}>
-
+                            <TextInputField value={'C1'} />
                         </View>
                         <View style={{ flex: 1 }}>
-                            <DynamicButton text={'Save & Next'} backgroundColor={bgColor} />
+                            <TextInputField label={'Description'} value={'Stalling'} />
+                        </View>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', gap: 20 }}>
+                            <View style={{ flex: 1 }}>
+                            </View>
+                            <View style={{ flex: 1 }}>
+                                <DynamicButton text={'Save & Next'} backgroundColor={bgColor} />
+                            </View>
                         </View>
                     </View>
-                </View>
-
-
-
-
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 20, fontSize: 18, backgroundColor: '#DCDCDC', }}>
-                    <Text style={styles.text}>
-                        Activity code
-                    </Text>
-                    <Text style={styles.text}>
-                        Description
-                    </Text>
-                    <Text style={styles.text}>
-                        Status
-                    </Text>
-                </View>
-
-                <FlatList
-                    data={list}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item, index }) => (
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 20, fontSize: 18, backgroundColor: '#DCDCDC', backgroundColor: index % 2 === 0 ? 'white' : '#F8F8F8', }}>
-                            <View style={{ width: '30%' }}>
-                                <Text style={styles.innertext}>{item?.Activitycode}</Text>
-                            </View>
-                            <View style={{ width: '30%' }}>
-                                <Text style={styles.innertext}>{item?.Description}</Text>
-                            </View>
-                            <View style={{ width: '17%' }}>
-                                <Text style={styles.innertext}>{item?.Status}</Text>
-                            </View>
+                </ScrollView>
+            </SafeAreaView>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 20, fontSize: 18, backgroundColor: '#DCDCDC', }}>
+                <Text style={styles.text}>
+                    Activity code
+                </Text>
+                <Text style={styles.text}>
+                    Description
+                </Text>
+                <Text style={styles.text}>
+                    Status
+                </Text>
+            </View>
+            <FlatList
+                data={list}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item, index }) => (
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 20, fontSize: 18, backgroundColor: '#DCDCDC', backgroundColor: index % 2 === 0 ? 'white' : '#F8F8F8', }}>
+                        <View style={{ width: '30%' }}>
+                            <Text style={styles.innertext}>{item?.Activitycode}</Text>
                         </View>
-                    )}
-                />
-
-            </ScrollView>
-        </SafeAreaView>
+                        <View style={{ width: '30%' }}>
+                            <Text style={styles.innertext}>{item?.Description}</Text>
+                        </View>
+                        <View style={{ width: '17%' }}>
+                            <Text style={styles.innertext}>{item?.Status}</Text>
+                        </View>
+                    </View>
+                )}
+            />
+        </>
     )
 };
 const styles = StyleSheet.create({

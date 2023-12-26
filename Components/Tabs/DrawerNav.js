@@ -9,6 +9,8 @@ import Login from "../Login/Login";
 import CreateWorkOrder from "../MyWorkOrder/CreateWorkOrder";
 import CreateOperation from "../MyWorkOrder/CreateOperation";
 import MyProfile from "../My Profile/MyProfile";
+import CreateRequisition from "../MyWorkOrder/CreateRequisition";
+import AddNotification from "../My Notification/AddNotification";
 
 const Drawer = createDrawerNavigator();
 
@@ -107,8 +109,9 @@ const DrawerNav = () => {
                     )
                 }}
             />
-            <Drawer.Screen name="Create Notification" component={Order}
+            <Drawer.Screen name="Create Notification" component={AddNotification}
                 options={{
+                    headerShown: true,
                     drawerIcon: ({ focused, size }) => (
                         <MaterialCommunityIcons
                             name={"bell-plus-outline"}
@@ -141,8 +144,9 @@ const DrawerNav = () => {
                     )
                 }}
             />
-            <Drawer.Screen name="Create Requisition" component={Order}
+            <Drawer.Screen name="Create Requisition" component={CreateRequisition}
                 options={{
+                    headerShown: true,
                     drawerIcon: ({ focused, size }) => (
                         <Octicons
                             name={"diff-added"}
