@@ -9,7 +9,7 @@ import Filter from "../../filter";
 import Modal from "react-native-modal";
 import DynamicButton from "../../button";
 
-const Operation = () => {
+const TaskMyNotification = () => {
     const [isModalVisible, setModalVisible] = useState(false);
     const [selectedOrder, setSelectedOrder] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
@@ -18,6 +18,11 @@ const Operation = () => {
     const [dates, setDates] = useState(true);
     const [status, setStatus] = useState(true);
 
+
+    const handleButtonClick = () => {
+        // Set renderSecond to true when the button is clicked
+        setRenderSecond(!renderSecond);
+    };
     const handleModalOpen = (order) => {
         setSelectedOrder(order);
         setModalVisible(true);
@@ -53,16 +58,16 @@ const Operation = () => {
 
     const tasks = [
         {
-            id: 1, Activity: 'Undertable functional dem0dotration', ActivityType: 'Saket', WorkCenter: 'Saket', People: '2', Planned: '1.5 H', startDate: '12/09/2023', endDate: '13/09/2023', Duration: '2 hours', StartTime: '2:00 PM', EndTime: '2:30 PM', Actual: '0 H', Remaining: '0,5 H'
+            id: 1, Notificationid: 'YUG4891', Description: 'Hotwork Spark/Flame/Weld', ObjectParts: 'Air condition ', DamageType: 'Gas pump', Createdat: 'EAM ', Updatedat: '12/09/2023',
         },
         {
-            id: 2, Activity: 'Undertable functional dem0dotration', ActivityType: 'Saket', WorkCenter: 'Saket', People: '2', Planned: '1.5 H', startDate: '12/09/2023', endDate: '13/09/2023', Duration: '2 hours', StartTime: '2:00 PM', EndTime: '2:30 PM', Actual: '0 H', Remaining: '0,5 H'
+            id: 2, Notificationid: 'YUG4891', Description: 'Hotwork Spark/Flame/Weld', ObjectParts: 'Air condition ', DamageType: 'Gas pump', Createdat: 'EAM ', Updatedat: '12/09/2023',
         },
         {
-            id: 3, Activity: 'Undertable functional dem0dotration', ActivityType: 'Saket', WorkCenter: 'Saket', People: '2', Planned: '1.5 H', startDate: '12/09/2023', endDate: '13/09/2023', Duration: '2 hours', StartTime: '2:00 PM', EndTime: '2:30 PM', Actual: '0 H', Remaining: '0,5 H'
+            id: 3, Notificationid: 'YUG4891', Description: 'Hotwork Spark/Flame/Weld', ObjectParts: 'Air condition ', DamageType: 'Gas pump', Createdat: 'EAM ', Updatedat: '12/09/2023',
         },
         {
-            id: 4, Activity: 'Undertable functional dem0dotration', ActivityType: 'Saket', WorkCenter: 'Saket', People: '2', Planned: '1.5 H', startDate: '12/09/2023', endDate: '13/09/2023', Duration: '2 hours', StartTime: '2:00 PM', EndTime: '2:30 PM', Actual: '0 H', Remaining: '0,5 H'
+            id: 4, Notificationid: 'YUG4891', Description: 'Hotwork Spark/Flame/Weld', ObjectParts: 'Air condition ', DamageType: 'Gas pump', Createdat: 'EAM ', Updatedat: '12/09/2023',
         },
 
         // Add more tasks with different statuses
@@ -72,11 +77,11 @@ const Operation = () => {
     return (
         <>
             {renderSecond ? (
-                <View style={{ height: 460 }}>
+                <View style={{ height: 450 }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
                         <View>
                             <Text style={{ fontSize: 18, fontWeight: '700' }}>
-                                Operations
+                            Tasks
                             </Text>
                         </View>
                         <View >
@@ -102,76 +107,39 @@ const Operation = () => {
                                         </View>
                                     </Card.Actions>
                                     <Card.Content style={{}} >
-                                        <TouchableOpacity onPress={() => setRenderSecond(!renderSecond)}>
-                                            <View style={{ flexDirection: 'row', paddingBottom: 10, marginTop: -10 }}>
-
-                                                <View style={{ width: 120, }}>
-                                                    <Text style={styles.cardText}>Activity</Text>
-                                                    <Text>{item.Activity}</Text>
+                                        <TouchableOpacity
+                                        // onPress={handleButtonClick}
+                                        >
+                                            <View style={{ flexDirection: 'row', paddingBottom: 10, marginTop: -20, gap: 10 }}>
+                                                <View style={{ flex: 1 }}>
+                                                    <Text style={styles.cardText}>Notification Id</Text>
+                                                    <Text>{item.Notificationid}</Text>
                                                 </View>
-
-
-                                                <View style={{ width: 100, }}>
-                                                    <Text style={styles.cardText}>Start</Text>
-                                                    <Text>{item.startDate}</Text>
+                                                <View style={{ flex: 1 }}>
+                                                    <Text style={styles.cardText}>Description</Text>
+                                                    <Text>{item.Description}</Text>
                                                 </View>
-
-
-                                                <View style={{ width: 100, }}>
-                                                    <Text style={styles.cardText}>End</Text>
-                                                    <Text>{item.endDate}</Text>
-
+                                            </View>
+                                            <View style={{ flexDirection: 'row', paddingBottom: 10, gap: 10 }}>
+                                                <View style={{ flex: 1 }}>
+                                                    <Text style={styles.cardText}>Object Parts</Text>
+                                                    <Text>{item.ObjectParts}</Text>
+                                                </View>
+                                                <View style={{ flex: 1 }}>
+                                                    <Text style={styles.cardText}>Damage Type</Text>
+                                                    <Text>{item.DamageType}</Text>
                                                 </View>
 
                                             </View>
-                                            <View style={{ flexDirection: 'row', paddingBottom: 10 }}>
-
-                                                <View style={{ width: 120, }}>
-                                                    <Text style={styles.cardText}>Activity Type</Text>
-                                                    <Text>{item.ActivityType}</Text>
+                                            <View style={{ flexDirection: 'row', paddingBottom: 10, gap: 10 }}>
+                                                <View style={{ flex: 1 }}>
+                                                    <Text style={styles.cardText}>Created at</Text>
+                                                    <Text>{item.Createdat}</Text>
                                                 </View>
-
-
-                                                <View style={{ width: 100, }}>
-                                                    <Text style={styles.cardText}>Work Center</Text>
-                                                    <Text>{item.WorkCenter}</Text>
+                                                <View style={{ flex: 1 }}>
+                                                    <Text style={styles.cardText}>Updated at</Text>
+                                                    <Text>{item.Updatedat}</Text>
                                                 </View>
-
-
-                                                <View style={{ width: 100, }}>
-                                                    <Text style={styles.cardText}>People</Text>
-                                                    <Text>{item.People}</Text>
-
-                                                </View>
-                                            </View>
-                                            <View style={{ flexDirection: 'row', paddingBottom: 10 }}>
-
-                                                <View style={{ width: 120, }}>
-                                                    <Text style={styles.cardText}>Planned</Text>
-                                                    <Text>{item.Planned}</Text>
-                                                </View>
-
-
-                                                <View style={{ width: 100, }}>
-                                                    <Text style={styles.cardText}>Duration</Text>
-                                                    <Text>{item.Duration}</Text>
-                                                </View>
-
-
-                                                <View style={{ width: 100, }}>
-                                                    <Text style={styles.cardText}>Actual</Text>
-                                                    <Text>{item.Actual}</Text>
-
-                                                </View>
-                                            </View>
-                                            <View style={{ flexDirection: 'row', }}>
-
-                                                <View style={{ width: 120, }}>
-                                                    <Text style={styles.cardText}>Remaining</Text>
-                                                    <Text>{item.Remaining}</Text>
-                                                </View>
-
-
                                             </View>
                                         </TouchableOpacity>
                                     </Card.Content>
@@ -414,7 +382,7 @@ const Operation = () => {
                                             <Text style={styles.headrText}>
                                                 System Status
                                             </Text>
-                                            <Text style={[styles.text,{color:'#419C32'}]}>
+                                            <Text style={[styles.text, { color: '#419C32' }]}>
                                                 Open
                                             </Text>
                                         </View>
@@ -422,7 +390,7 @@ const Operation = () => {
                                             <Text style={styles.headrText}>
                                                 User Status
                                             </Text>
-                                            <Text style={[styles.text,{color:rejectColor}]}>
+                                            <Text style={[styles.text, { color: rejectColor }]}>
                                                 Closed
                                             </Text>
                                         </View>
@@ -467,4 +435,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Operation;
+export default TaskMyNotification;
