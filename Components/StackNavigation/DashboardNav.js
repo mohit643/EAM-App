@@ -12,6 +12,9 @@ import AppStack from '../Tabs/AppStack';
 import MyProfile from '../My Profile/MyProfile';
 import MyAssetes from '../My Assetes/MyAssetes';
 import MyNotification from '../My Notification/MyNotification';
+import MyTeam from '../My Team/MyTeam';
+import Map from '../MyWorkOrder/Map';
+
 
 
 const DashboardNav = () => {
@@ -41,7 +44,7 @@ const DashboardNav = () => {
                 name='Create Work Order'
                 options={{ headerShown: true }}
                 component={CreateWorkOrder} />
-                 <Stack.Screen
+            <Stack.Screen
                 name='My Notifications'
                 options={{ headerShown: true }}
                 component={MyNotification} />
@@ -49,7 +52,14 @@ const DashboardNav = () => {
                 name='Add Notification'
                 options={{ headerShown: true }}
                 component={AddNotification} />
-
+            <Stack.Screen
+                name='My Team'
+                options={{ headerShown: true }}
+                component={MyTeam} />
+            <Stack.Screen
+                name='Map'
+                options={{ headerShown: true }}
+                component={Map} />
 
 
         </Stack.Navigator>

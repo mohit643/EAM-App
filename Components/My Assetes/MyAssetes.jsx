@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, SafeAreaView } from "react-native"
 import MainHeader from "../Header/MainHeader";
 import { Card, IconButton } from "react-native-paper";
-import { Ionicons, SimpleLineIcons, MaterialCommunityIcons, AntDesign, Feather } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons, MaterialCommunityIcons, AntDesign, Feather } from "@expo/vector-icons";
 import { bgColor } from "../../color";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import React, { useState } from "react";
@@ -10,7 +10,10 @@ import SearchBar from "../../searchBar";
 import { ScrollView } from "react-native-gesture-handler";
 
 const MyAssetes = ({ navigation }) => {
+    const [secondDrawer, setSecondDrawer] = useState(false);
+
     const Header = () => {
+
         navigation.setOptions({
             headerLeft: () => (
                 <View style={{ marginLeft: 10 }}>
@@ -26,11 +29,37 @@ const MyAssetes = ({ navigation }) => {
 
             headerRight: () => (
                 <View style={{ marginRight: 16 }}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => setSecondDrawer(!secondDrawer)}>
                         <View style={styles.dot}>
+
                             <IconButton icon="dots-vertical" />
                         </View>
                     </TouchableOpacity>
+                    {secondDrawer ?
+                        <View style={{ position: 'absolute', width: 160, right: 40, top: 0 }}>
+                            <Card style={{ alignItems: 'flex-start', padding: 10, backgroundColor: 'white' }}>
+                                <TouchableOpacity>
+                                    <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center' }}>
+                                        <MaterialCommunityIcons name="eye-arrow-right" size={20} color="black" />
+                                        <Text>Status</Text>
+                                    </View>
+                                </TouchableOpacity>
+                                <TouchableOpacity>
+                                    <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center' }}>
+                                        <MaterialCommunityIcons name="clock-edit-outline" size={20} color="black" />
+                                        <Text>Add Times</Text>
+                                    </View>
+                                </TouchableOpacity>
+                                <TouchableOpacity>
+                                    <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center' }}>
+                                        <MaterialIcons name="create-new-folder" size={20} color="black" />
+                                        <Text>Create Operation</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </Card>
+
+                        </View>
+                        : null}
                 </View>
             ),
             headerTitleAlign: "center",
@@ -44,7 +73,7 @@ const MyAssetes = ({ navigation }) => {
 
     React.useLayoutEffect(() => {
         Header();
-    }, []);
+    }, [secondDrawer]);
 
 
     const [focusedIndex, setFocusedIndex] = useState(0);
