@@ -1,10 +1,10 @@
-import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList } from "react-native"
+import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, TouchableWithoutFeedback } from "react-native"
 import MainHeader from "../Header/MainHeader";
-import { Card } from "react-native-paper";
+import { Card, IconButton, } from "react-native-paper";
 import { Ionicons, Foundation, MaterialCommunityIcons, FontAwesome6, Feather } from "@expo/vector-icons";
 import { bgColor } from "../../color";
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
-
+import Modal from "react-native-modal";
 import React, { useState } from "react";
 
 import { TopHeader } from "../../TopHeader";
@@ -25,11 +25,100 @@ import DocumentsMyNotification from "./DocumentsMyNotification";
 
 
 const MyNotification = ({ navigation }) => {
-    React.useLayoutEffect(() => {
-        TopHeader(navigation);
-    }, [navigation]);
-
+    const [secondDrawer, setSecondDrawer] = useState(false);
     const [focusedIndex, setFocusedIndex] = useState(0);
+    const getTitleText = () => {
+        switch (focusedIndex) {
+            case 0:
+                return "My Notifications";
+            case 1:
+                return "Items";
+            case 2:
+                return "Causes";
+            case 3:
+                return "Activities";
+            case 4:
+                return "Tasks";
+            case 5:
+                return "Documents ";
+            // Add more cases as needed
+            default:
+                return "Default Title";
+        }
+    };
+    const handlOpenUploadDocuments = () => {
+
+    }
+    const Header = () => {
+        navigation.setOptions({
+            headerLeft: () => (
+                <View style={{ marginLeft: 10 }}>
+                    <TouchableOpacity
+                        style={{ marginLeft: 10, }}
+                        onPress={() => {
+                            navigation.openDrawer();
+                        }}>
+                        <Feather name='bar-chart-2' size={26} color={'black'} style={{ transform: [{ rotate: '90deg' }], }} />
+                    </TouchableOpacity>
+                </View>
+            ),
+            headerRight: () => (
+                <View style={{ marginRight: 16 }}>
+                    <TouchableOpacity onPress={() => setSecondDrawer(!secondDrawer)}>
+                        <View style={styles.dot}>
+                            <IconButton icon="dots-vertical" />
+                        </View>
+                    </TouchableOpacity>
+                    {secondDrawer ?
+                        <>
+                            <View style={{ position: 'absolute', width: 160, right: 40, top: 0 }}>
+                                {focusedIndex == 5 ?
+                                    (
+                                        <Modal
+                                            statusBarTranslucent={true}
+                                            visible={secondDrawer}
+                                            transparent={true}
+                                            animationType="fade"
+                                            onRequestClose={() => setSecondDrawer(false)}
+                                        >
+                                            <TouchableWithoutFeedback onPress={() => setSecondDrawer(false)}>
+                                                <View style={styles.modalOverlay} />
+                                            </TouchableWithoutFeedback>
+
+                                            <View style={styles.modalContent}>
+                                                <Card style={{ alignItems: 'flex-start', padding: 10, backgroundColor: 'white' }}>
+                                                    <TouchableOpacity onPress={handlOpenUploadDocuments}>
+                                                        <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center', paddingBottom: 5 }}>
+                                                            <MaterialCommunityIcons name="folder-upload" size={20} color="black" />
+                                                            <Text>Upload Documents</Text>
+                                                        </View>
+                                                    </TouchableOpacity>
+
+                                                </Card>
+                                            </View>
+                                        </Modal>
+                                    ) : null}
+                            </View>
+
+                        </>
+                        : null}
+                </View>
+            ),
+            headerTitleAlign: "center",
+            headerStyle: {
+                backgroundColor: 'white',
+                height: 100,
+            },
+            headerTintColor: "black",
+            title: getTitleText(),
+        });
+    };
+
+    React.useLayoutEffect(() => {
+        Header();
+    }, [secondDrawer, focusedIndex]);
+
+
     const handleCardPress = (index) => {
         setFocusedIndex(index);
     };
@@ -72,7 +161,7 @@ const MyNotification = ({ navigation }) => {
 
     return (
         <View>
-            <View style={{ backgroundColor: bgColor, paddingLeft: 10, paddingRight: 10 }}>
+            <View style={{ backgroundColor: 'white', paddingLeft: 10, paddingRight: 10 }}>
                 <SearchBar
                     iconName='search'
                     placeholder="Search here.."
@@ -105,6 +194,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#F4F4F4',
         borderRadius: 50,
         justifyContent: 'center', alignItems: 'center'
-    }
+    },
+    modalOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0, 0, 0, 0)', // semi-transparent black
+    },
+    modalContent: {
+        position: 'absolute',
+        top: 70,
+        right: -10,
+        // bottom: 0,
+        // width: 160,
+        padding: 10,
+        // backgroundColor: 'white',
+        zIndex: 2, // Ensure it's above the modalOverlay
+    },
 })
 export default MyNotification;

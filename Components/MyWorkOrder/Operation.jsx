@@ -94,7 +94,9 @@ const Operation = () => {
                                 <Card>
                                     <Card.Actions>
                                         <View style={{}}>
-                                            <TouchableOpacity onPress={handleModalOpen}>
+                                            <TouchableOpacity
+                                            // onPress={handleModalOpen}
+                                            >
                                                 <View style={styles.dot}>
                                                     <Feather name="arrow-up-right" size={20} color={'#2EA0A1'} />
                                                 </View>
@@ -414,7 +416,7 @@ const Operation = () => {
                                             <Text style={styles.headrText}>
                                                 System Status
                                             </Text>
-                                            <Text style={[styles.text,{color:'#419C32'}]}>
+                                            <Text style={[styles.text, { color: '#419C32' }]}>
                                                 Open
                                             </Text>
                                         </View>
@@ -422,7 +424,7 @@ const Operation = () => {
                                             <Text style={styles.headrText}>
                                                 User Status
                                             </Text>
-                                            <Text style={[styles.text,{color:rejectColor}]}>
+                                            <Text style={[styles.text, { color: rejectColor }]}>
                                                 Closed
                                             </Text>
                                         </View>

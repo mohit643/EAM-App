@@ -3,7 +3,7 @@ import { Card, Icon, IconButton } from 'react-native-paper';
 import userImage from '../../assets/Oval.png'
 import { Badge } from 'react-native-paper';
 import SearchBar from "../../searchBar";
-import { Ionicons, Foundation, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons, Foundation, MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
 
 
 import { bgColor } from "../../color";
@@ -166,23 +166,23 @@ const Dashboard = ({ navigation }) => {
                                         </View>
                                     </Card.Content>
                                 </Card>
-                                {/* <Card style={{ backgroundColor: 'white', flex: 1 }}>
+                                <Card style={{ backgroundColor: 'white', flex: 1 }}>
                                     <Card.Content >
-                                        <View >
-                                            <View style={{ alignItems: 'flex-end' }}>
-                                                <View style={styles.dot}>
-                                                    <Image
-                                                        source={Image4}
-                                                    />
+                                        <TouchableOpacity onPress={() => navigation.navigate('My Team')}>
+                                            <View >
+                                                <View style={{ alignItems: 'flex-end' }}>
+                                                    <View style={styles.dot}>
+                                                        <FontAwesome name="users" size={24} color={bgColor} />
+                                                    </View>
+                                                </View>
+                                                <View >
+                                                    <Text style={styles.value}>12</Text>
+                                                    <Text style={styles.cardText}>My Team</Text>
                                                 </View>
                                             </View>
-                                            <View >
-                                                <Text style={styles.value}>30</Text>
-                                                <Text style={styles.cardText}>My Assets</Text>
-                                            </View>
-                                        </View>
+                                        </TouchableOpacity>
                                     </Card.Content>
-                                </Card> */}
+                                </Card>
                             </View>
                         </View>
                     </ScrollView>
