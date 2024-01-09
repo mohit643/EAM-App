@@ -1,21 +1,12 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, TouchableWithoutFeedback } from "react-native"
-import MainHeader from "../Header/MainHeader";
 import { Card, IconButton, } from "react-native-paper";
 import { Ionicons, Foundation, MaterialCommunityIcons, FontAwesome6, Feather } from "@expo/vector-icons";
 import { bgColor } from "../../color";
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
 import Modal from "react-native-modal";
 import React, { useState } from "react";
-
-import { TopHeader } from "../../TopHeader";
 import SearchBar from "../../searchBar";
-import Order from "../MyWorkOrder/Order";
-import Inspections from "../MyWorkOrder/Inspections";
-import Operation from "../MyWorkOrder/Operation";
-import Permits from "../MyWorkOrder/Permits";
-import Documents from "../MyWorkOrder/Documents";
 import MPoints from "../MyWorkOrder/MPoints";
-import Componenets from "../MyWorkOrder/Componenets";
 import General from "./General";
 import Items from "./Items";
 import CausesMyNotification from "./CausesMyNotification";

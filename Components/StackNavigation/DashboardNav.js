@@ -14,6 +14,9 @@ import MyAssetes from '../My Assetes/MyAssetes';
 import MyNotification from '../My Notification/MyNotification';
 import MyTeam from '../My Team/MyTeam';
 import Map from '../MyWorkOrder/Map';
+import MPointEntry from '../MyWorkOrder/MPointEntry';
+
+
 
 
 
@@ -21,51 +24,53 @@ const DashboardNav = () => {
     const Stack = createStackNavigator();
 
     return (
-
-        <Stack.Navigator
-            initialRouteName='Dashborad'
-            screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Dashborad" component={Dashboard} />
-            {/* <Stack.Screen
+        <View style={{ flex: 1, paddingBottom: '20%' }}>
+            <Stack.Navigator
+                initialRouteName='Dashborad'
+                screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="Dashborad" component={Dashboard} />
+                {/* <Stack.Screen
                 name='Tabs'
                 component={AppStack} /> */}
-            <Stack.Screen
-                name='Order'
-                component={Order} />
-            <Stack.Screen
-                name='My Work Orders'
-                options={{ headerShown: true }}
-                component={MyWorkOrders} />
-            <Stack.Screen
-                name='My Assetes'
-                options={{ headerShown: true }}
-                component={MyAssetes} />
-            <Stack.Screen
-                name='Create Work Order'
-                options={{ headerShown: true }}
-                component={CreateWorkOrder} />
-            <Stack.Screen
-                name='My Notifications'
-                options={{ headerShown: true }}
-                component={MyNotification} />
-            <Stack.Screen
-                name='Add Notification'
-                options={{ headerShown: true }}
-                component={AddNotification} />
-            <Stack.Screen
-                name='My Team'
-                options={{ headerShown: true }}
-                component={MyTeam} />
-            <Stack.Screen
-                name='Map'
-                options={{ headerShown: true }}
-                component={Map} />
-
-
-        </Stack.Navigator>
-
-
+                <Stack.Screen
+                    name='Order'
+                    component={Order} />
+                <Stack.Screen
+                    name='My Work Orders'
+                    options={{ headerShown: true }}
+                    component={MyWorkOrders} />
+                <Stack.Screen
+                    name='My Assetes'
+                    options={{ headerShown: true }}
+                    component={MyAssetes} />
+                <Stack.Screen
+                    name='Create Work Order'
+                    options={{ headerShown: true }}
+                    component={CreateWorkOrder} />
+                <Stack.Screen
+                    name='My Notifications'
+                    options={{ headerShown: true }}
+                    component={MyNotification} />
+                <Stack.Screen
+                    name='Add Notification'
+                    options={{ headerShown: true }}
+                    component={AddNotification} />
+                <Stack.Screen
+                    name='My Team'
+                    options={{ headerShown: true }}
+                    component={MyTeam} />
+                <Stack.Screen
+                    name='Map'
+                    options={{ headerShown: true }}
+                    component={Map} />
+                <Stack.Screen
+                    name='M Point Entry'
+                    options={{ headerShown: true, }}
+                    component={MPointEntry} />
+            </Stack.Navigator>
+        </View>
     )
 }
+
 
 export default DashboardNav;

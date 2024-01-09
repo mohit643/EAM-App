@@ -4,14 +4,10 @@ import userImage from '../../assets/Oval.png'
 import { Badge } from 'react-native-paper';
 import SearchBar from "../../searchBar";
 import { Ionicons, Foundation, MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
-
-
 import { bgColor } from "../../color";
-import { useContext } from "react";
-import { AuthContext } from "../Utils/AuthContext";
+
 
 const Dashboard = ({ navigation }) => {
-
 
     return (
         <SafeAreaView>
@@ -219,7 +215,7 @@ const styles = StyleSheet.create({
     scrollContainer: {
         paddingLeft: 10,
         paddingRight: 10,
-        marginBottom: 575
+        marginBottom: '140%'
 
     },
     dot: {

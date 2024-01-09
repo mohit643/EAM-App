@@ -20,6 +20,7 @@ import TextInputField from "../../TextInputField";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import DropDownPicker from "react-native-dropdown-picker";
 import Map from "./Map";
+import Bom from "./Bom";
 
 
 const MyWorkOrders = ({ navigation }) => {
@@ -97,8 +98,6 @@ const MyWorkOrders = ({ navigation }) => {
         { id: 4, status: "Awaiting Parts" },
         { id: 5, status: "Return to Planner" },
         { id: 6, status: "Completed" },
-
-
         // Add more data as needed
     ];
 
@@ -111,6 +110,14 @@ const MyWorkOrders = ({ navigation }) => {
         setSecondDrawer(false);
         setModalMaterialDemon(true);
     };
+    const hanldOpenMPointEntry = () => {
+        setSecondDrawer(false);
+        navigation.navigate('M Point Entry')
+    }
+    const handlOpenCreateOrder = () => {
+        setSecondDrawer(false);
+        navigation.navigate('Create Work Order');
+    }
     const handlOpenStatus = () => {
         setSecondDrawer(false);
         setModalStatusVisible(true)
@@ -213,9 +220,55 @@ const MyWorkOrders = ({ navigation }) => {
                                                     </Card>
                                                 </View>
                                             </Modal>
-                                        ) : null}
-                            </View>
+                                        ) : focusedIndex === 6 ?
+                                            (
+                                                <Modal
+                                                    statusBarTranslucent={true}
+                                                    visible={secondDrawer}
+                                                    transparent={true}
+                                                    animationType="fade"
+                                                    onRequestClose={() => setSecondDrawer(false)}
+                                                >
+                                                    <TouchableWithoutFeedback onPress={() => setSecondDrawer(false)}>
+                                                        <View style={styles.modalOverlay} />
+                                                    </TouchableWithoutFeedback>
 
+                                                    <View style={styles.modalContent}>
+                                                        <Card style={{ alignItems: 'flex-start', padding: 10, backgroundColor: 'white' }}>
+                                                            <TouchableOpacity onPress={hanldOpenMPointEntry}>
+                                                                <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center', paddingBottom: 5 }}>
+                                                                    <MaterialCommunityIcons name="eye-arrow-right" size={20} color="black" />
+                                                                    <Text>M Point Entry</Text>
+                                                                </View>
+                                                            </TouchableOpacity>
+                                                        </Card>
+                                                    </View>
+                                                </Modal>
+                                            ) : focusedIndex === 0 ?
+                                                (
+                                                    <Modal
+                                                        statusBarTranslucent={true}
+                                                        visible={secondDrawer}
+                                                        transparent={true}
+                                                        animationType="fade"
+                                                        onRequestClose={() => setSecondDrawer(false)}
+                                                    >
+                                                        <TouchableWithoutFeedback onPress={() => setSecondDrawer(false)}>
+                                                            <View style={styles.modalOverlay} />
+                                                        </TouchableWithoutFeedback>
+                                                        <View style={styles.modalContent}>
+                                                            <Card style={{ alignItems: 'flex-start', padding: 10, backgroundColor: 'white' }}>
+                                                                <TouchableOpacity onPress={handlOpenCreateOrder}>
+                                                                    <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center', paddingBottom: 5 }}>
+                                                                        <MaterialCommunityIcons name="file-document-multiple-outline" size={20} color="black" />
+                                                                        <Text>Create Order</Text>
+                                                                    </View>
+                                                                </TouchableOpacity>
+                                                            </Card>
+                                                        </View>
+                                                    </Modal>
+                                                ) : null}
+                            </View>
                         </>
                         : null}
                 </View>
@@ -251,8 +304,9 @@ const MyWorkOrders = ({ navigation }) => {
             case 6:
                 return "M Points ";
             case 7:
-                return "Map ";
-            // Add more cases as needed
+                return "BOM ";
+            case 8:
+                return "Map";
             default:
                 return "Default Title";
         }
@@ -279,9 +333,9 @@ const MyWorkOrders = ({ navigation }) => {
         const name = item.name
         return (
             < >
-                <View key={index} >
+                <View key={index}>
                     <View style={{}} >
-                        <Card style={{ backgroundColor: isFocused ? bgColor : 'white', margin: 5, }}>
+                        <Card style={{ backgroundColor: isFocused ? bgColor : 'white', margin: 2, }}>
                             {/* <Card.Content> */}
                             <TouchableOpacity onPress={() => handleCardPress(index)}>
                                 <View style={{ width: 70, height: 70, alignItems: 'center', justifyContent: 'center' }}>
@@ -310,7 +364,8 @@ const MyWorkOrders = ({ navigation }) => {
             <View>
                 <SwiperFlatList
                     data={data}
-                    renderItem={({ item, index }) => renderCard(item, index)}
+                    renderItem={({ item, index }) =>
+                        renderCard(item, index)}
                 />
                 {
                     focusedIndex === 0 ? <Order /> :
@@ -320,9 +375,9 @@ const MyWorkOrders = ({ navigation }) => {
                                     focusedIndex === 4 ? <Documents /> :
                                         focusedIndex === 5 ? <Components /> :
                                             focusedIndex === 6 ? <MPoints /> :
-                                                focusedIndex === 8 ? <Map /> :
-
-                                                    null
+                                                focusedIndex === 7 ? <Bom /> :
+                                                    focusedIndex === 8 ? <Map /> :
+                                                        null
                 }
             </View>
             {isModalStatusVisible ? (
@@ -426,111 +481,6 @@ const MyWorkOrders = ({ navigation }) => {
                 </Modal>
             ) : null
             }
-
-            {/* {isModalCreateOperation ? (
-                <Modal isVisible={isModalCreateOperation} style={{ backgroundColor: 'white', borderRadius: 20, paddingTop: 20, paddingBottom: 30 }}>
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
-                        <View >
-                            <Text style={styles.cardText}>
-                                isModalCreateOperation
-                            </Text>
-                        </View>
-                        <View >
-                            <TouchableOpacity onPress={handleModalClose}>
-                                <Fontisto name="close" size={20} color={rejectColor} />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                    <View style={{ borderBottomWidth: 1, borderColor: '#9E9E9E' }} />
-                    <SafeAreaView style={styles.container}>
-                        <ScrollView style={styles.scrollView}>
-                            <View style={{ padding: 10, paddingTop: 0 }}>
-                                <View style={{ paddingTop: 10, paddingBottom: 10 }}>
-                                    <Text style={styles.Mainheading}>Material Details and Location</Text>
-                                </View>
-                                <View >
-                                    <TextInputField label={'Material'} value={'MYPM-VEH - Vehicles'} />
-                                </View>
-                                <View>
-                                    <TextInputField label={'Plant'} value={'1-1 High'} />
-                                </View>
-
-                                <View>
-                                    <TextInputField label={'Storage Location'} value={'1000 - EAM'} />
-                                </View>
-                                <View>
-                                    <TextInputField label={'Available Balance'} value={'1000 - EAM'} />
-                                </View>
-
-                                <View style={{ paddingTop: 10, paddingBottom: 10 }}>
-                                    <Text style={styles.Mainheading}>Demand Details</Text>
-                                </View>
-                                <View style={{ flexDirection: 'row', gap: 20 }}>
-                                    <View style={{ flex: 1 }}>
-                                        <TextInputField label={'Demand Quatity'} value={'003 Repair'} />
-                                    </View>
-                                    <View style={{ flex: 1 }}>
-                                        <Text style={styles.text}> </Text>
-                                        <View>
-                                            <DropDownPicker
-                                                style={{
-                                                    backgroundColor: 'transparent',
-                                                    height: 55,
-                                                    borderWidth: 0.5
-                                                }}
-                                                open={open}
-                                                value={value}
-                                                items={items}
-                                                setOpen={setOpen}
-                                                setValue={setValue}
-                                                setItems={setItems}
-                                            />
-                                        </View>
-                                    </View>
-                                </View>
-
-                                <View style={{ paddingBottom: 10 }}>
-                                    <Text style={styles.text}>Required Date </Text>
-                                    <TextInput
-                                        showSoftInputOnFocus={false}
-                                        style={[styles.input, { flex: 1 }]}
-                                        onChangeText={setText}
-                                        // label="Date"
-                                        mode="flat"
-                                        underlineColor="transparent"
-                                        value={date.toLocaleDateString()}
-                                        right={
-                                            <TextInput.Icon
-                                                onPress={showDatepicker}
-                                                icon="calendar-outline"
-                                            />
-                                        }
-                                    />
-                                </View>
-                                <View>
-                                    <TextInputField label={'Demand Orders'} value={'PM03- Breakdown Maintenance'} />
-                                </View>
-                                <View >
-                                    <TextInputField label={'Operation'} value={'003 Repair'} />
-                                </View>
-                                <View >
-                                    <TextInputField label={'Unloading Point'} value={'003 Repair'} />
-                                </View>
-
-                                <View style={{ flexDirection: 'row', gap: 20, paddingTop: 10 }}>
-                                    <View style={{ flex: 1 }}>
-                                        <DynamicButton text={"Cancel"} backgroundColor={cancelColor} />
-                                    </View>
-                                    <View style={{ flex: 1 }}>
-                                        <DynamicButton text={"Save"} backgroundColor={bgColor} />
-                                    </View>
-                                </View>
-                            </View>
-                        </ScrollView>
-                    </SafeAreaView>
-                </Modal>
-            ) : null} */}
-
             {isModalCreateRequisition ? (
                 <Modal isVisible={isModalCreateRequisition} style={{ backgroundColor: 'white', borderRadius: 20, paddingTop: 20, paddingBottom: 30 }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
