@@ -13,7 +13,6 @@ const MyAssetes = ({ navigation }) => {
     const [secondDrawer, setSecondDrawer] = useState(false);
 
     const Header = () => {
-
         navigation.setOptions({
             headerLeft: () => (
                 <View style={{ marginLeft: 10 }}>
@@ -57,7 +56,6 @@ const MyAssetes = ({ navigation }) => {
                                     </View>
                                 </TouchableOpacity>
                             </Card>
-
                         </View>
                         : null}
                 </View>

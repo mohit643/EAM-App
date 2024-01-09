@@ -10,6 +10,8 @@ import SearchBar from "../../searchBar";
 import { ScrollView } from "react-native-gesture-handler";
 
 const MyTeam = ({ navigation }) => {
+    const [focusedIndex, setFocusedIndex] = useState(0);
+
     const Header = () => {
         navigation.setOptions({
             headerLeft: () => (
@@ -46,8 +48,6 @@ const MyTeam = ({ navigation }) => {
         Header();
     }, []);
 
-
-    const [focusedIndex, setFocusedIndex] = useState(0);
     const handleCardPress = (index) => {
         setFocusedIndex(index);
     };
@@ -125,8 +125,6 @@ const MyTeam = ({ navigation }) => {
                     )}
                 />
             </View>
-
-
         </>
     )
 };
