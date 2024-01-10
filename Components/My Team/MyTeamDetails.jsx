@@ -9,7 +9,7 @@ import { TopHeader } from "../../TopHeader";
 import SearchBar from "../../searchBar";
 import { ScrollView } from "react-native-gesture-handler";
 
-const MyTeam = ({ navigation }) => {
+const MyTeamDetails = ({ navigation }) => {
     const [focusedIndex, setFocusedIndex] = useState(0);
 
     const Header = () => {
@@ -17,11 +17,11 @@ const MyTeam = ({ navigation }) => {
             headerLeft: () => (
                 <View style={{ marginLeft: 10 }}>
                     <TouchableOpacity
-                        style={{ marginLeft: 10, }}
+                        style={{ marginLeft: 10, marginRight: 40 }}
                         onPress={() => {
-                            navigation.openDrawer();
+                            navigation.goBack();
                         }}>
-                        <Feather name='bar-chart-2' size={26} color={'black'} style={{ transform: [{ rotate: '90deg' }], }} />
+                        <Ionicons name='arrow-back-outline' size={26} color={'white'} />
                     </TouchableOpacity>
                 </View>
             ),
@@ -37,10 +37,10 @@ const MyTeam = ({ navigation }) => {
             ),
             headerTitleAlign: "center",
             headerStyle: {
-                backgroundColor: 'white',
+                backgroundColor: bgColor,
                 height: 100,
             },
-            headerTintColor: "black",
+            headerTintColor: "white",
         });
     };
 
@@ -53,35 +53,50 @@ const MyTeam = ({ navigation }) => {
     };
 
     const list = [
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
-        { Name: 'Ram Kumar', LastSync: '16:00 PM, 24/09/2023' },
+        { id: 1, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 2, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 3, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 4, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 5, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 6, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 7, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 8, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 9, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 10, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 11, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 12, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
+        { id: 13, TimeDate: '16:00 PM, 24/09/2023', Activity: 'N1 Notification Added' },
         // ... (other data)
     ];
 
     return (
         <>
+            <View style={{ backgroundColor: bgColor, padding: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View>
+                    <Text style={styles.toptext}>
+                        Name
+                    </Text>
+                    <Text style={styles.toptextheading}>
+                        Mohan Yadav
+                    </Text>
+                </View>
+                <View>
+                    <Text style={styles.toptext}>
+                        No. of Activities
+                    </Text>
+                    <Text style={styles.toptextheading}>
+                        36
+                    </Text>
+                </View>
+                <View>
+                    <Text style={styles.toptext}>
+                        Last Activity
+                    </Text>
+                    <Text style={styles.toptextheading}>
+                        12/09/2023
+                    </Text>
+                </View>
+            </View>
             <View style={{ backgroundColor: 'white', paddingLeft: 10, paddingRight: 10 }}>
                 <SearchBar
                     iconName='search'
@@ -90,13 +105,13 @@ const MyTeam = ({ navigation }) => {
                 />
             </View>
             <View style={styles.tableHeader}>
-                <View style={{ flex: 1 }}>
-                    <Text style={styles.text}>Name</Text>
+                <View style={{ width: '15%' }}>
+                    <Text style={styles.text}>S.No.</Text>
                 </View>
-                <View style={{ flex: 1 }}>
-                    <Text style={styles.text}>Last Sync</Text>
+                <View style={{ width: '45%' }}>
+                    <Text style={styles.text}>Time and Date</Text>
                 </View>
-                <View style={{ flex: 0 }}>
+                <View style={{ width: '40%' }}>
                     <Text style={styles.text}>Activity</Text>
                 </View>
             </View>
@@ -107,19 +122,14 @@ const MyTeam = ({ navigation }) => {
                     data={list}
                     renderItem={({ item, index }) => (
                         <View style={[styles.cell, { backgroundColor: index % 2 === 0 ? 'white' : '#F8F8F8', }]}>
-                            <View style={{ flex: 1 }}>
-                                <Text>{item.Name}</Text>
+                            <View style={{ width: '15%' }}>
+                                <Text style={{ fontSize: 13 }}>{item.id}</Text>
                             </View>
-                            <View style={{ flex: 2 }}>
-                                <Text style={{ color: bgColor }}>{item.LastSync}</Text>
+                            <View style={{ width: '45%' }}>
+                                <Text style={{ fontSize: 13 }}>{item.TimeDate}</Text>
                             </View>
-                            <View style={{ flex: 0 }}>
-                                <TouchableOpacity onPress={() => navigation.navigate('Details')}>
-                                    <View style={styles.Activitydot}>
-                                        <MaterialCommunityIcons name="file-document-multiple" color={'white'} />
-                                    </View>
-                                </TouchableOpacity>
-
+                            <View style={{ width: '40%' }}>
+                                <Text style={{ fontSize: 13 }}>{item.Activity}</Text>
                             </View>
                         </View>
                     )}
@@ -132,6 +142,16 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 15,
         fontWeight: '700',
+    },
+    toptext: {
+        color: 'white',
+        fontSize: 14,
+        fontWeight: '300'
+    },
+    toptextheading: {
+        color: 'white',
+        fontSize: 14,
+        fontWeight: '500'
     },
     dot: {
         height: 40,
@@ -148,17 +168,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center', alignItems: 'center'
     },
     tableHeader: {
+        width: '100%',
         backgroundColor: '#DCDCDC',
         flexDirection: 'row',
         padding: 20,
-        justifyContent: 'space-between'
     },
     cell: {
         backgroundColor: 'white',
         flexDirection: 'row',
-        justifyContent: 'space-between',
         alignItems: 'center',
         padding: 20
     },
 })
-export default MyTeam;
+export default MyTeamDetails;

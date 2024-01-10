@@ -15,6 +15,10 @@ import MyNotification from '../My Notification/MyNotification';
 import MyTeam from '../My Team/MyTeam';
 import Map from '../MyWorkOrder/Map';
 import MPointEntry from '../MyWorkOrder/MPointEntry';
+import MyTeamDetails from '../My Team/MyTeamDetails';
+import WorkOrderHistroy from '../MyWorkOrder/WorkOrderHistory';
+import OperationHistory from '../MyWorkOrder/OperationHistory';
+import InspectionHistory from '../MyWorkOrder/InspectionHistory';
 
 
 
@@ -24,7 +28,7 @@ const DashboardNav = () => {
     const Stack = createStackNavigator();
 
     return (
-        <View style={{ flex: 1, paddingBottom: '20%' }}>
+        <View style={{ flex: 1, paddingBottom: '20%', backgroundColor: 'white' }}>
             <Stack.Navigator
                 initialRouteName='Dashborad'
                 screenOptions={{ headerShown: false }}>
@@ -67,6 +71,23 @@ const DashboardNav = () => {
                     name='M Point Entry'
                     options={{ headerShown: true, }}
                     component={MPointEntry} />
+                <Stack.Screen
+                    name='Details'
+                    options={{ headerShown: true, }}
+                    component={MyTeamDetails} />
+                <Stack.Screen
+                    name='Work Order History'
+                    options={{ headerShown: true, headerTitleAlign: 'center' }}
+                    component={WorkOrderHistroy} />
+                <Stack.Screen
+                    name='Operation History'
+                    options={{ headerShown: true, headerTitleAlign: 'center' }}
+                    component={OperationHistory} />
+                <Stack.Screen
+                    name='Inspection History'
+                    options={{ headerShown: true, headerTitleAlign: 'center' }}
+                    component={InspectionHistory} />
+
             </Stack.Navigator>
         </View>
     )
