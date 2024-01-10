@@ -118,6 +118,18 @@ const MyWorkOrders = ({ navigation }) => {
         setSecondDrawer(false);
         navigation.navigate('Create Work Order');
     }
+    const handlWorkOrderHistory = () => {
+        setSecondDrawer(false);
+        navigation.navigate('Work Order History');
+    }
+    const handlInspectionHistory = () => {
+        setSecondDrawer(false);
+        navigation.navigate('Inspection History');
+    }
+    const handlOpenOperationHistory = () => {
+        setSecondDrawer(false);
+        navigation.navigate('Operation History')
+    }
     const handlOpenStatus = () => {
         setSecondDrawer(false);
         setModalStatusVisible(true)
@@ -185,6 +197,12 @@ const MyWorkOrders = ({ navigation }) => {
                                                         <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center', paddingBottom: 5 }}>
                                                             <MaterialIcons name="create-new-folder" size={20} color="black" />
                                                             <Text>Create Operation</Text>
+                                                        </View>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity onPress={handlOpenOperationHistory}>
+                                                        <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center', paddingBottom: 5 }}>
+                                                            <MaterialIcons name="create-new-folder" size={20} color="black" />
+                                                            <Text>Operation History</Text>
                                                         </View>
                                                     </TouchableOpacity>
                                                 </Card>
@@ -264,10 +282,39 @@ const MyWorkOrders = ({ navigation }) => {
                                                                         <Text>Create Order</Text>
                                                                     </View>
                                                                 </TouchableOpacity>
+                                                                <TouchableOpacity onPress={handlWorkOrderHistory}>
+                                                                    <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center', paddingBottom: 5 }}>
+                                                                        <MaterialCommunityIcons name="file-document-multiple-outline" size={20} color="black" />
+                                                                        <Text>Work Order History</Text>
+                                                                    </View>
+                                                                </TouchableOpacity>
                                                             </Card>
                                                         </View>
                                                     </Modal>
-                                                ) : null}
+                                                ) : focusedIndex === 2 ?
+                                                    (
+                                                        <Modal
+                                                            statusBarTranslucent={true}
+                                                            visible={secondDrawer}
+                                                            transparent={true}
+                                                            animationType="fade"
+                                                            onRequestClose={() => setSecondDrawer(false)}
+                                                        >
+                                                            <TouchableWithoutFeedback onPress={() => setSecondDrawer(false)}>
+                                                                <View style={styles.modalOverlay} />
+                                                            </TouchableWithoutFeedback>
+                                                            <View style={styles.modalContent}>
+                                                                <Card style={{ alignItems: 'flex-start', padding: 10, backgroundColor: 'white' }}>
+                                                                    <TouchableOpacity onPress={handlInspectionHistory}>
+                                                                        <View style={{ flexDirection: 'row', gap: 5, alignItems: 'center', paddingBottom: 5 }}>
+                                                                            <MaterialCommunityIcons name="file-document-multiple-outline" size={20} color="black" />
+                                                                            <Text>Inspection History</Text>
+                                                                        </View>
+                                                                    </TouchableOpacity>
+                                                                </Card>
+                                                            </View>
+                                                        </Modal>
+                                                    ) : null}
                             </View>
                         </>
                         : null}
