@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-
 import { Checkbox, } from 'react-native-paper';
 import { useContext, useState } from "react";
 import Input from "../../input";

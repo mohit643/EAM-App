@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native
 import { bgColor } from "../../color";
 import { Ionicons, AntDesign, MaterialCommunityIcons, FontAwesome6, Feather } from "@expo/vector-icons";
 import { useState } from "react";
-import { ScrollView } from "react-native-gesture-handler";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 

@@ -1,13 +1,10 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, SafeAreaView } from "react-native"
-import MainHeader from "../Header/MainHeader";
 import { Card, IconButton } from "react-native-paper";
 import { Ionicons, MaterialIcons, MaterialCommunityIcons, AntDesign, Feather } from "@expo/vector-icons";
 import { bgColor } from "../../color";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import React, { useState } from "react";
-import { TopHeader } from "../../TopHeader";
 import SearchBar from "../../searchBar";
-import { ScrollView } from "react-native-gesture-handler";
 
 const MyAssetes = ({ navigation }) => {
     const [secondDrawer, setSecondDrawer] = useState(false);
