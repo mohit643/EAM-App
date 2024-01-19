@@ -11,6 +11,7 @@ import CreateOperation from "../MyWorkOrder/CreateOperation";
 import MyProfile from "../My Profile/MyProfile";
 import CreateRequisition from "../MyWorkOrder/CreateRequisition";
 import AddNotification from "../My Notification/AddNotification";
+import Assign from "../SyncPage/Assign/Assign";
 
 const Drawer = createDrawerNavigator();
 
@@ -98,6 +99,18 @@ const DrawerNav = () => {
                 }}
             />
             <Drawer.Screen name="Create Work Order" component={CreateWorkOrder}
+                options={{
+                    headerShown: true,
+                    drawerIcon: ({ focused, size }) => (
+                        <MaterialCommunityIcons
+                            name={"note-check"}
+                            size={size}
+                            color={focused ? bgColor : '#414141'}
+                        />
+                    )
+                }}
+            />
+             <Drawer.Screen name="Assign" component={Assign}
                 options={{
                     headerShown: true,
                     drawerIcon: ({ focused, size }) => (

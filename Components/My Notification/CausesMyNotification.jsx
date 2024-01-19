@@ -3,9 +3,7 @@ import { Button, Card } from "react-native-paper";
 import { bgColor, rejectColor } from "../../color";
 import { Ionicons, AntDesign, MaterialCommunityIcons, Fontisto, Feather } from "@expo/vector-icons";
 import { FlatList } from "react-native-gesture-handler";
-
 import { useState } from "react";
-import Filter from "../../filter";
 import Modal from "react-native-modal";
 import DynamicButton from "../../button";
 

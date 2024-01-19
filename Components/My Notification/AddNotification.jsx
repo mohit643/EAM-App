@@ -1,9 +1,6 @@
 import { View, Text } from "react-native-animatable"
-import MainHeader from "../Header/MainHeader";
-import Header from "../Header/Header";
 import { Card, Switch, TextInput } from 'react-native-paper';
 import React, { useState } from "react";
-import Input from "../../input";
 import { Ionicons, FontAwesome, MaterialCommunityIcons, Fontisto, Feather } from "@expo/vector-icons";
 import TextInputField from "../../TextInputField";
 import { ScrollView, StyleSheet, Dimensions, SafeAreaView, TouchableOpacity, FlatList } from "react-native";
